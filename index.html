@@ -9,6 +9,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
 </head>
 <body><div class="app">
 <header class="top"><div class="brand"><div class="logo">✦</div><div>English Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div></div><div class="tag">🎯 12 TENSES CHALLENGE</div></header>
@@ -234,6 +235,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
 const auth = firebase.auth();
 const db = firebase.firestore();
 let currentUser = null;
