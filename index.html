@@ -48,6 +48,42 @@ body.dark-mode .vocab-card-back { background: #393078; border-color: var(--purpl
 .timer-container { height: 6px; background: #ffebee; border-radius: 10px; margin-bottom: 20px; overflow: hidden; width: 100%; }
 .timer-bar { height: 100%; background: #ff4757; width: 100%; transition: width 0.1s linear; }
 body.dark-mode .timer-container { background: #4a1920; }
+
+/* Profile Dropdown Menu */
+.profile-dropdown-container { position: relative; display: inline-block; cursor: pointer; }
+.avatar-gradient-ring { padding: 3px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--purple), var(--mint)); transition: transform 0.2s; }
+.avatar-gradient-ring:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4); }
+.avatar-logo { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--card); color: var(--purple); font-weight: bold; font-size: 18px; text-transform: uppercase; overflow: hidden; border: 2px solid var(--card); }
+body.dark-mode .avatar-logo { background: var(--card); color: #fff; border-color: var(--card); }
+.avatar-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-dropdown-menu { position: absolute; top: 55px; right: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); width: 260px; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; }
+.profile-dropdown-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-header { padding: 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+.dropdown-header-info { display: flex; flex-direction: column; overflow: hidden; }
+.dropdown-header-info strong { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dropdown-header-info span { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.dropdown-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background 0.15s; font-weight: 600; font-size: 14px; color: var(--ink); }
+.dropdown-item:hover { background: #f8f7ff; color: var(--purple); }
+body.dark-mode .dropdown-item:hover { background: #2a2a2a; color: var(--mint); }
+.dropdown-item:last-child { border-bottom: none; }
+.dropdown-item .icon-text { display: flex; align-items: center; gap: 10px; }
+
+/* Mini toggle for dark mode in dropdown */
+.theme-toggle-wrap { display: flex; align-items: center; background: var(--line); border-radius: 99px; padding: 3px; width: 50px; position: relative; }
+.theme-toggle-knob { width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: transform 0.3s; }
+body.dark-mode .theme-toggle-wrap { background: var(--purple); }
+body.dark-mode .theme-toggle-knob { transform: translateX(24px); background: var(--card); }
+
+/* Language selector in dropdown */
+.dropdown-lang-opts { display: flex; flex-direction: column; padding: 8px; gap: 4px; background: #faf9ff; border-bottom: 1px solid var(--line); display:none; }
+body.dark-mode .dropdown-lang-opts { background: #1a1a1a; }
+.dropdown-lang-opts.show { display: flex; }
+.dropdown-lang-btn { padding: 8px 12px; text-align: left; border-radius: 8px; background: transparent; font-weight: 600; font-size: 13px; color: var(--muted); }
+.dropdown-lang-btn:hover { background: #eeecff; color: var(--purple); }
+body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
+.dropdown-lang-btn.active { background: var(--purple); color: white; }
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -60,60 +96,77 @@ body.dark-mode .timer-container { background: #4a1920; }
 </head>
 <body><div class="app">
 
-<header class="top" style="flex-wrap: wrap;">
-  <div class="brand" id="brandContainer">
+<header class="top" style="flex-wrap: wrap; position: relative; z-index: 1000;">
+  <div class="brand" id="brandContainer" style="cursor: pointer;" onclick="switchTab('learn')">
     <div class="logo">✦</div>
     <div>Language Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div>
   </div>
   
   <div class="game-stats">
-    <div class="badge" id="headerLevel">🌟 Lvl 1</div>
-    <div class="badge" id="headerStreak">🔥 0</div>
-    <button class="badge" id="darkModeBtn" onclick="toggleDarkMode()" style="cursor:pointer;">🌙</button>
-  </div>
-  
-  <div class="lang-selector">
-    <button class="lang-btn active" onclick="changeLanguage('en')" id="btnLangEN">🇺🇸 Tiếng Anh</button>
-    <button class="lang-btn" onclick="changeLanguage('ko')" id="btnLangKO">🇰🇷 Tiếng Hàn</button>
-    <button class="lang-btn" onclick="changeLanguage('zh')" id="btnLangZH">🇨🇳 Tiếng Trung</button>
+    <div class="badge" id="headerLevel" style="display:none;">🌟 Lvl 1</div>
+    <div class="badge" id="headerStreak" style="display:none;">🔥 0</div>
+    
+    <div class="profile-dropdown-container" id="profileDropdownBtn" onclick="toggleProfileMenu(event)">
+      <div class="avatar-gradient-ring">
+        <div class="avatar-logo" id="headerAvatar">👤</div>
+      </div>
+      
+      <div class="profile-dropdown-menu" id="profileMenu">
+        <div class="dropdown-header">
+          <div class="avatar-logo" id="menuAvatar" style="width:46px;height:46px;font-size:22px;">👤</div>
+          <div class="dropdown-header-info">
+            <strong id="menuName">Chưa đăng nhập</strong>
+            <span id="menuEmail">Vui lòng đăng nhập để lưu điểm</span>
+          </div>
+        </div>
+        
+        <div class="dropdown-item" onclick="switchTab('settings'); closeProfileMenu();">
+          <div class="icon-text"><span>👤</span> Quản lý tài khoản</div>
+        </div>
+        
+        <div class="dropdown-item" onclick="toggleLangMenu(event)">
+          <div class="icon-text"><span>🌐</span> Ngôn ngữ học</div>
+          <span id="currentLangLabel" style="font-size:12px; font-weight:800; color:var(--purple); background:#f0eeff; padding:2px 6px; border-radius:6px;">🇺🇸 Anh</span>
+        </div>
+        <div class="dropdown-lang-opts" id="langMenuOpts">
+          <button class="dropdown-lang-btn active" onclick="changeLanguage('en')" id="btnDropLangEN">🇺🇸 Tiếng Anh</button>
+          <button class="dropdown-lang-btn" onclick="changeLanguage('ko')" id="btnDropLangKO">🇰🇷 Tiếng Hàn</button>
+          <button class="dropdown-lang-btn" onclick="changeLanguage('zh')" id="btnDropLangZH">🇨🇳 Tiếng Trung</button>
+        </div>
+        
+        <div class="dropdown-item" onclick="toggleDarkMode(); event.stopPropagation();">
+          <div class="icon-text"><span>🌙</span> Giao diện tối</div>
+          <div class="theme-toggle-wrap"><div class="theme-toggle-knob"></div></div>
+        </div>
+        
+        <div class="dropdown-item" id="menuLogoutBtn" style="display:none; color:#ff4757;" onclick="logoutAccount(); closeProfileMenu();">
+          <div class="icon-text"><span>🚪</span> Đăng xuất</div>
+        </div>
+        
+      </div>
+    </div>
   </div>
 </header>
 
 <section class="hero"><div class="hero-main"><div class="eyebrow">✨ Chinh phục ngữ pháp</div><h1 id="heroTitle">12 thì tiếng Anh<br>không còn khó!</h1><p>Học công thức, hiểu cách dùng và luyện trắc nghiệm từng bước. Mỗi câu đúng là một bước tiến gần hơn đến mục tiêu của bạn.</p><button class="primary" onclick="switchTab('quiz')">Bắt đầu luyện tập&nbsp; →</button><div class="hero-art">🚀</div></div><div class="stats"><div class="stat"><span class="emoji">📚</span><strong id="questionCount">—</strong><span>câu trong ngân hàng</span></div><div class="stat"><span class="emoji">🧠</span><strong id="doneStat">0</strong><span>câu đã trả lời</span></div><div class="stat"><span class="emoji">⭐</span><strong id="accuracyStat">—</strong><span>tỉ lệ chính xác</span></div><div class="stat"><span class="emoji">🔥</span><strong id="streakStat">0</strong><span>câu đúng liên tiếp</span></div></div></section>
-<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Thư viện ngữ pháp</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="account" onclick="switchTab('account')">👤 Tài khoản</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button><button class="tab" data-tab="vocab" onclick="switchTab('vocab')">🔤 Từ vựng</button></nav>
+<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Thư viện ngữ pháp</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button></nav>
 <section class="panel" id="learnPanel"><div class="panel-head"><div><h2>Thư viện Ngữ pháp</h2><p class="sub">Chọn một chủ điểm để xem công thức, cách dùng và ví dụ.</p></div></div><div class="tense-grid" id="tenseGrid"></div></section>
-
-<section class="panel hidden" id="vocabPanel">
-  <div class="panel-head" style="align-items:center;">
-    <div>
-      <h2>Thư viện Từ vựng 3D</h2>
-      <p class="sub">Chạm vào thẻ để lật, nghe phát âm và xem nghĩa.</p>
-    </div>
-    <select class="select" id="vocabTopicFilter" onchange="renderVocab()">
-      <option value="all">Tất cả chủ đề</option>
-      <option value="daily">Sinh hoạt hàng ngày</option>
-      <option value="family">Gia đình & Bạn bè</option>
-      <option value="study">Học tập</option>
-      <option value="work">Công việc</option>
-      <option value="food">Đồ ăn & Thức uống</option>
-      <option value="shopping">Mua sắm</option>
-      <option value="health">Sức khỏe</option>
-      <option value="travel">Du lịch & Giao thông</option>
-      <option value="weather">Thời tiết</option>
-      <option value="tech">Công nghệ</option>
-      <option value="hobbies">Sở thích</option>
-      <option value="home">Nhà cửa</option>
-    </select>
-  </div>
-  <p class="sub" style="margin-bottom:15px;">Đang hiển thị <b id="vocabCountDisplay" style="color:var(--purple);">0</b> từ vựng.</p>
-  <div id="vocabGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:15px;">
-  </div>
-</section>
-
 <section class="panel hidden" id="studyPanel"><div class="panel-head"><div><h2>Góc học tập</h2><p class="sub">Mẹo nhỏ: chú ý từ vựng và dấu hiệu thời gian.</p></div><button class="secondary" onclick="switchTab('learn')">← Danh sách</button></div><div class="study-layout"><div class="side-list" id="sideList"></div><article class="lesson" id="lesson"></article></div></section>
 <section class="panel hidden" id="quizPanel"><div class="panel-head"><div><h2>Đấu trường ngữ pháp ⚡</h2><p class="sub">Ngân hàng hàng ngàn câu trắc nghiệm. Luyện tối đa 20 câu mỗi lượt; mỗi câu đều có giải thích.</p></div></div><div id="quizArea"></div></section>
 <section class="panel hidden" id="reviewPanel"><div class="panel-head"><div><h2>Ôn nhanh trong 2 phút 📝</h2><p class="sub">Nhìn dấu hiệu, nhớ công thức — đừng học vẹt một cách máy móc.</p></div></div><div class="tense-grid" id="reviewGrid"></div></section>
-<section class="panel hidden" id="accountPanel"><div class="panel-head"><div><h2>👤 Tài khoản học tập</h2><p class="sub">Tạo tài khoản hoặc đăng nhập để lưu thành tích trực tuyến trên mọi thiết bị.</p></div><div id="accountStatus" class="account-pill">Chưa đăng nhập</div></div><div id="accountMessage" class="sub" role="status"></div><div class="auth-grid" id="authGrid"><form class="auth-card" onsubmit="registerAccount(event)"><h3>✨ Tạo tài khoản</h3><label for="regName">Tên hiển thị</label><input class="field" id="regName" maxlength="40" required placeholder="Ví dụ: Minh Anh"><label for="regEmail">Email</label><input class="field" id="regEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="regPass">Mật khẩu (ít nhất 8 ký tự)</label><input class="field" id="regPass" type="password" minlength="8" required autocomplete="new-password" placeholder="Tạo mật khẩu"><button class="primary" type="submit">Tạo tài khoản</button></form><form class="auth-card" onsubmit="loginAccount(event)"><h3>🔐 Đăng nhập</h3><label for="loginEmail">Email</label><input class="field" id="loginEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="loginPass">Mật khẩu</label><input class="field" id="loginPass" type="password" required autocomplete="current-password" placeholder="Mật khẩu"><button class="primary" type="submit">Đăng nhập</button></form></div>
+<section class="panel hidden" id="settingsPanel"><div class="panel-head"><div><h2>⚙️ Cài đặt & Tài khoản</h2><p class="sub">Tùy chỉnh ngôn ngữ học và quản lý dữ liệu cá nhân của bạn.</p></div><div id="accountStatus" class="account-pill">Chưa đăng nhập</div></div>
+
+<div style="margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid var(--line);">
+  <h3 style="margin-top:0;">🌐 Ngôn ngữ muốn học</h3>
+  <p class="sub" style="margin-bottom:12px;">Hệ thống sẽ tự động tải thư viện từ vựng và ngữ pháp tương ứng.</p>
+  <div class="lang-selector" style="display:inline-flex; background: var(--line);">
+    <button class="lang-btn active" onclick="changeLanguage('en')" id="btnLangEN">🇺🇸 Tiếng Anh</button>
+    <button class="lang-btn" onclick="changeLanguage('ko')" id="btnLangKO">🇰🇷 Tiếng Hàn</button>
+    <button class="lang-btn" onclick="changeLanguage('zh')" id="btnLangZH">🇨🇳 Tiếng Trung</button>
+  </div>
+</div>
+
+<h3 style="margin-top:0;">☁️ Hồ sơ đám mây</h3><div id="accountMessage" class="sub" role="status"></div><div class="auth-grid" id="authGrid"><form class="auth-card" onsubmit="registerAccount(event)"><h3>✨ Tạo tài khoản</h3><label for="regName">Tên hiển thị</label><input class="field" id="regName" maxlength="40" required placeholder="Ví dụ: Minh Anh"><label for="regEmail">Email</label><input class="field" id="regEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="regPass">Mật khẩu (ít nhất 8 ký tự)</label><input class="field" id="regPass" type="password" minlength="8" required autocomplete="new-password" placeholder="Tạo mật khẩu"><button class="primary" type="submit">Tạo tài khoản</button></form><form class="auth-card" onsubmit="loginAccount(event)"><h3>🔐 Đăng nhập</h3><label for="loginEmail">Email</label><input class="field" id="loginEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="loginPass">Mật khẩu</label><input class="field" id="loginPass" type="password" required autocomplete="current-password" placeholder="Mật khẩu"><button class="primary" type="submit">Đăng nhập</button></form></div>
 <div id="loggedInView" class="hidden auth-card" style="margin-top: 16px;">
   <div style="display:flex; align-items:center; gap: 16px; margin-bottom: 20px;">
       <div id="accountAvatar" class="avatar-logo" style="width:60px; height:60px; font-size:28px;"></div>
@@ -387,12 +440,6 @@ function changeLanguage(lang) {
   questions = expandQuestions(data.qBase);
   
   document.getElementById('questionCount').textContent = questions.length;
-  currentVocabList = vocabDB[lang];
-  if(document.getElementById('vocabTopicFilter')) {
-      document.getElementById('vocabTopicFilter').value = 'all';
-      renderVocab();
-  }
-
   
   // Đặt lại state
   currentTense = tenses[0].id;
@@ -408,8 +455,8 @@ let currentTenseActive=1,qi=0,round=[],answered=false,score=0,done=0,correctTota
 function renderTenseGrid(){document.getElementById('tenseGrid').innerHTML=tenses.map(t=>'<button class="tense-card" onclick="openLesson('+t.id+')"><span class="num">BÀI '+String(t.id).padStart(2,'0')+'</span><strong>'+t.name+'</strong><small>'+t.vn+'</small></button>').join('')}
 function openLesson(id){currentTenseActive=id;document.getElementById('learnPanel').classList.add('hidden');document.getElementById('studyPanel').classList.remove('hidden');renderLesson();}
 function renderLesson(){let t=tenses.find(x=>x.id===currentTenseActive);document.getElementById('sideList').innerHTML=tenses.map(x=>'<button class="side-item '+(x.id===currentTenseActive?'active':'')+'" onclick="currentTenseActive='+x.id+';renderLesson()">'+String(x.id).padStart(2,'0')+' · '+x.name+'</button>').join('');document.getElementById('lesson').innerHTML='<h3>'+t.name+'</h3><p class="vn">'+t.vn+'</p><h4>🧩 Công thức</h4><div class="formula"><b>'+t.formula+'</b></div><h4>🎯 Cách dùng</h4><p style="line-height:1.7;color:#575676">'+t.use+'</p><h4>🔎 Dấu hiệu / Ngữ cảnh</h4><p style="line-height:1.8;color:#575676">'+t.signal+'</p><h4>💬 Ví dụ</h4><div class="example">'+t.ex+'</div><h4>💡 Mẹo ghi nhớ</h4><p style="line-height:1.7;color:#575676">'+t.tip+'</p><button class="primary" style="margin-top:10px" onclick="switchTab(\'quiz\');startQuiz('+t.id+')">Luyện câu hỏi bài này →</button>'}
-function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','account','achievements','vocab'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('account');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='account')renderAccountStatus();if(tab==='achievements')renderAchievements();window.scrollTo({top:document.querySelector('.tabs').offsetTop-12,behavior:'smooth'})}
-function startQuiz(onlyId=null){if(!currentUser){switchTab('account');setAccountMessage('Đăng nhập trước khi bắt đầu làm bài.');return;}let pool=questions.filter(q=>(onlyId?q.t===onlyId:true));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
+function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','settings','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('settings');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='settings')renderAccountStatus();if(tab==='achievements')renderAchievements();const tabsEl=document.querySelector('.tabs'); if(tabsEl) window.scrollTo({top:tabsEl.offsetTop-12,behavior:'smooth'});}
+function startQuiz(onlyId=null){if(!currentUser){switchTab('settings');setAccountMessage('Đăng nhập trước khi bắt đầu làm bài.');return;}let pool=questions.filter(q=>(onlyId?q.t===onlyId:true));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
 function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=round.length){
     saveAchievement();
     if(score === round.length && score > 0 && typeof confetti !== 'undefined') {
@@ -500,7 +547,7 @@ async function loginAccount(event){
   }catch(error){setAccountMessage(friendlyAuthError(error));}
 }
 async function logoutAccount(){
-  try{ await auth.signOut(); setAccountMessage('Đã đăng xuất.'); switchTab('account'); }catch(error){}
+  try{ await auth.signOut(); setAccountMessage('Đã đăng xuất.'); switchTab('settings'); }catch(error){}
 }
 
 function renderAccountStatus(){
@@ -522,15 +569,7 @@ function renderAccountStatus(){
   }
 }
 
-function updateBrandLogo() {
-  const brandContainer = document.getElementById('brandContainer');
-  if (currentUser) {
-    let avatarHtml = currentPhotoURL ? '<img src="' + currentPhotoURL + '">' : (currentDisplayName || currentUser.email).charAt(0).toUpperCase();
-    brandContainer.innerHTML = '<div class="avatar-logo" style="cursor: pointer;" onclick="switchTab(\'account\')">' + avatarHtml + '</div><div><div style="font-size: 15px; font-weight: 800;">Xin chào, ' + (currentDisplayName || currentUser.email.split('@')[0]) + ' 👋</div><div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">LANGUAGE TIME LAB</div></div>';
-  } else {
-    brandContainer.innerHTML = '<div class="logo">✦</div><div>Language Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div>';
-  }
-}
+
 
 function openProfileModal(){
   document.getElementById('editName').value = currentDisplayName;
@@ -658,6 +697,102 @@ async function renderAchievements(){
     setTimeout(() => { if(labels.length > 0) renderRadarChart(labels, dataPts); }, 100);
 
   }catch(error){}
+}
+
+
+// --- DROPDOWN MENU LOGIC ---
+
+
+
+
+function toggleProfileMenu(e) {
+    if(e && e.target && e.target.closest('.profile-dropdown-menu')) return;
+    const menu = document.getElementById('profileMenu');
+    if(menu) menu.classList.toggle('active');
+}
+
+function closeProfileMenu() {
+    const menu = document.getElementById('profileMenu');
+    const langOpts = document.getElementById('langMenuOpts');
+    if(menu) menu.classList.remove('active');
+    if(langOpts) langOpts.classList.remove('show');
+}
+
+function toggleLangMenu(e) {
+    if(e) e.stopPropagation();
+    const langOpts = document.getElementById('langMenuOpts');
+    if(langOpts) langOpts.classList.toggle('show');
+}
+
+document.addEventListener('click', function(e) {
+    const btn = document.getElementById('profileDropdownBtn');
+    const menu = document.getElementById('profileMenu');
+    const langOpts = document.getElementById('langMenuOpts');
+    if (btn && !btn.contains(e.target)) {
+        if(menu) menu.classList.remove('active');
+        if(langOpts) langOpts.classList.remove('show');
+    }
+});
+
+// Override changeLanguage to update UI
+const origChangeLanguage = changeLanguage;
+changeLanguage = function(lang) {
+    origChangeLanguage(lang);
+    
+    // Update Dropdown UI
+    document.querySelectorAll('.dropdown-lang-btn').forEach(b => b.classList.remove('active'));
+    let dropBtn = document.getElementById('btnDropLang' + lang.toUpperCase());
+    if(dropBtn) dropBtn.classList.add('active');
+    
+    let label = '🇺🇸 Anh';
+    if(lang === 'ko') label = '🇰🇷 Hàn';
+    if(lang === 'zh') label = '🇨🇳 Trung';
+    const labelEl = document.getElementById('currentLangLabel');
+    if(labelEl) labelEl.textContent = label;
+    
+    // Auto close
+    setTimeout(closeProfileMenu, 300);
+}
+
+// Override toggleDarkMode for UI consistency
+const origToggleDarkMode = toggleDarkMode;
+toggleDarkMode = function() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    // UI knob is handled via CSS parent class body.dark-mode
+}
+
+// Rewrite updateBrandLogo to map data to Dropdown instead of replacing Brand
+function updateBrandLogo() {
+    const headAv = document.getElementById('headerAvatar');
+    const menuAv = document.getElementById('menuAvatar');
+    const menuNm = document.getElementById('menuName');
+    const menuEm = document.getElementById('menuEmail');
+    const menuOut = document.getElementById('menuLogoutBtn');
+    const b1 = document.getElementById('headerLevel');
+    const b2 = document.getElementById('headerStreak');
+    
+    if (currentUser) {
+        let name = currentDisplayName || currentUser.email.split('@')[0];
+        let avatarHtml = currentPhotoURL ? '<img src="' + currentPhotoURL + '">' : name.charAt(0).toUpperCase();
+        
+        if(headAv) headAv.innerHTML = avatarHtml;
+        if(menuAv) menuAv.innerHTML = avatarHtml;
+        if(menuNm) menuNm.textContent = name;
+        if(menuEm) menuEm.textContent = currentUser.email;
+        if(menuOut) menuOut.style.display = 'flex';
+        if(b1) b1.style.display = 'flex';
+        if(b2) b2.style.display = 'flex';
+    } else {
+        if(headAv) headAv.innerHTML = '👤';
+        if(menuAv) menuAv.innerHTML = '👤';
+        if(menuNm) menuNm.textContent = 'Chưa đăng nhập';
+        if(menuEm) menuEm.textContent = 'Vui lòng đăng nhập để lưu điểm';
+        if(menuOut) menuOut.style.display = 'none';
+        if(b1) b1.style.display = 'none';
+        if(b2) b2.style.display = 'none';
+    }
 }
 
 // Khởi chạy ngôn ngữ mặc định
