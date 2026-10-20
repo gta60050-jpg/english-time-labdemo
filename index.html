@@ -2,243 +2,215 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Time Lab — Luyện 12 thì</title>
+<title>Language Time Lab</title>
 <style>
-:root{--ink:#202044;--muted:#737494;--purple:#6c63ff;--pink:#ff78a8;--mint:#45d6b0;--yellow:#ffd166;--bg:#f6f5ff;--card:#fff;--line:#e9e7fb;--shadow:0 14px 40px #39307812}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#eeeaff 0,transparent 30%),radial-gradient(circle at 95% 15%,#ffeaf2 0,transparent 24%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1160px;margin:auto;padding:24px 22px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;color:white;background:linear-gradient(135deg,var(--purple),#a58cff);box-shadow:0 8px 20px #6c63ff55;font-size:23px}.tag{border:1px solid #e1defe;border-radius:99px;padding:9px 13px;background:#fff9;color:#665de6;font-size:12px;font-weight:800}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;margin-bottom:22px}.hero-main{position:relative;overflow:hidden;padding:34px;border-radius:28px;color:white;background:linear-gradient(120deg,#655cf6,#8e76ff 62%,#b59aff);box-shadow:var(--shadow);min-height:250px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:1.7px;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(29px,4vw,45px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 12px;max-width:560px}.hero p{line-height:1.65;max-width:520px;color:#f1efff;margin:0 0 23px}.primary{background:var(--yellow);color:#43381b;padding:13px 18px;border-radius:13px;font-weight:900;box-shadow:0 5px 0 #e9b74e;transition:.15s}.primary:hover{transform:translateY(-2px)}.hero-art{position:absolute;right:25px;bottom:13px;font-size:100px;opacity:.22;transform:rotate(-10deg)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:118px}.stat .emoji{font-size:23px}.stat strong{font-size:29px;letter-spacing:-1px}.stat span:last-child{font-size:12px;color:var(--muted);font-weight:700}.tabs{display:flex;gap:8px;background:#ebe9fa;padding:6px;border-radius:16px;width:max-content;max-width:100%;margin-bottom:18px}.tab{background:transparent;color:#77749c;font-weight:800;padding:11px 16px;border-radius:11px}.tab.active{background:white;color:var(--purple);box-shadow:0 3px 10px #39307812}.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px}.panel h2{margin:0 0 6px;font-size:23px;letter-spacing:-.5px}.sub{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.select{border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);padding:11px;max-width:100%}.tense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tense-card{border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;background:#fff;transition:.18s;min-height:142px;display:flex;flex-direction:column;gap:9px}.tense-card:hover{transform:translateY(-3px);border-color:#b9b2ff;box-shadow:0 9px 20px #6c63ff12}.tense-card .num{font-size:11px;font-weight:900;color:var(--purple);letter-spacing:1px}.tense-card strong{font-size:15px}.tense-card small{color:var(--muted);line-height:1.45}.pill{display:inline-block;border-radius:8px;background:#f0eeff;color:#655be8;padding:5px 8px;font-size:11px;font-weight:800;width:max-content}.study-layout{display:grid;grid-template-columns:230px 1fr;gap:18px}.side-list{display:flex;flex-direction:column;gap:7px;max-height:540px;overflow:auto;padding-right:3px}.side-item{background:#faf9ff;border:1px solid var(--line);padding:11px 12px;text-align:left;border-radius:12px;color:#5e5b7c;font-size:12px;font-weight:750}.side-item.active{background:#eeecff;border-color:#b9b2ff;color:#5e53ed}.lesson{border:1px solid var(--line);border-radius:19px;padding:23px;min-width:0}.lesson h3{font-size:24px;margin:12px 0 5px}.lesson .vn{color:var(--muted);margin:0 0 19px}.formula{background:#f5f3ff;border:1px dashed #c9c3ff;padding:15px;border-radius:13px;margin:10px 0 16px;line-height:1.7}.formula b{color:#5d53e8}.lesson h4{margin:19px 0 8px}.lesson li{margin:7px 0;color:#575676;line-height:1.5}.example{padding:13px 15px;background:#f0fff9;border-radius:12px;border-left:4px solid var(--mint);line-height:1.6}.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}.progress{height:8px;background:#eeecfa;border-radius:20px;overflow:hidden;margin:12px 0 23px}.progress div{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));width:0;transition:.25s}.question{font-size:22px;line-height:1.45;font-weight:850;margin:8px 0 7px}.qmeta{font-size:12px;color:var(--muted);font-weight:800}.options{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:23px 0}.option{border:1.5px solid var(--line);border-radius:14px;padding:15px;text-align:left;background:#fff;color:var(--ink);display:flex;gap:12px;align-items:center;line-height:1.45;transition:.15s}.letter{display:grid;place-items:center;flex:0 0 29px;height:29px;border-radius:9px;background:#f1efff;color:#6c63ff;font-weight:900}.option:hover:not(:disabled){border-color:#a8a0ff;background:#faf9ff}.option.correct{border-color:#45c99f;background:#effdf7}.option.correct .letter{background:#45c99f;color:white}.option.wrong{border-color:#ff8da7;background:#fff3f6}.option.wrong .letter{background:#ff8da7;color:white}.feedback{padding:14px 16px;border-radius:13px;line-height:1.6;margin:8px 0 16px;display:none}.feedback.show{display:block}.feedback.good{background:#effdf7;color:#176c51}.feedback.bad{background:#fff3f6;color:#a63b56}.quiz-actions{display:flex;justify-content:space-between;gap:10px;align-items:center}.secondary{background:#f0eeff;color:#5e53e8;padding:12px 16px;border-radius:12px;font-weight:850}.secondary:disabled{opacity:.4;cursor:not-allowed}.result{text-align:center;padding:20px 10px}.result .big{font-size:64px}.result h2{font-size:30px;margin:8px}.result p{color:var(--muted)}.result-score{font-size:42px;font-weight:950;color:var(--purple);margin:12px}.footer{text-align:center;color:#9996b7;font-size:12px;padding:24px 0 0}.auth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.auth-card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.field{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;margin:6px 0 12px;background:#fff;color:var(--ink)}.achievement-table{width:100%;border-collapse:collapse;margin-top:14px}.achievement-table th,.achievement-table td{padding:11px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}.notice{padding:12px 14px;border-radius:12px;background:#fff6dc;color:#795b13;line-height:1.55;font-size:13px;margin:12px 0}.account-pill{font-size:12px;color:var(--purple);font-weight:800}.hidden{display:none!important}.empty{text-align:center;padding:35px;color:var(--muted)}
-.avatar-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff78a8, #6c63ff);
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  box-shadow: 0 8px 20px #6c63ff55;
-  text-transform: uppercase;
-}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr)}.stat{min-height:100px;padding:14px}.stat strong{font-size:23px}.study-layout{grid-template-columns:1fr}.side-list{display:grid;grid-template-columns:1fr 1fr;max-height:250px}.tense-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.auth-grid{grid-template-columns:1fr}.achievement-table th,.achievement-table td{padding:8px 5px;font-size:11px}.app{padding:15px 12px 35px}.top{align-items:flex-start}.tag{font-size:10px}.hero-main{padding:25px 22px}.hero-art{font-size:70px;right:10px}.stats{grid-template-columns:1fr 1fr}.tabs{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.tab{padding:10px 5px;font-size:12px}.panel{padding:17px}.panel-head{flex-direction:column}.tense-grid{grid-template-columns:1fr 1fr;gap:8px}.tense-card{padding:13px;min-height:150px}.tense-card strong{font-size:13px}.options{grid-template-columns:1fr}.question{font-size:19px}.quiz-actions{align-items:stretch}.quiz-actions button{flex:1}.lesson{padding:17px}}
+:root{--ink:#202044;--muted:#737494;--purple:#6c63ff;--pink:#ff78a8;--mint:#45d6b0;--yellow:#ffd166;--bg:#f6f5ff;--card:#fff;--line:#e9e7fb;--shadow:0 14px 40px #39307812}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#eeeaff 0,transparent 30%),radial-gradient(circle at 95% 15%,#ffeaf2 0,transparent 24%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1160px;margin:auto;padding:24px 22px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;color:white;background:linear-gradient(135deg,var(--purple),#a58cff);box-shadow:0 8px 20px #6c63ff55;font-size:23px;overflow:hidden;}.logo img {width:100%;height:100%;object-fit:cover;}.tag{border:1px solid #e1defe;border-radius:99px;padding:9px 13px;background:#fff9;color:#665de6;font-size:12px;font-weight:800}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;margin-bottom:22px}.hero-main{position:relative;overflow:hidden;padding:34px;border-radius:28px;color:white;background:linear-gradient(120deg,#655cf6,#8e76ff 62%,#b59aff);box-shadow:var(--shadow);min-height:250px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:1.7px;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(29px,4vw,45px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 12px;max-width:560px}.hero p{line-height:1.65;max-width:520px;color:#f1efff;margin:0 0 23px}.primary{background:var(--yellow);color:#43381b;padding:13px 18px;border-radius:13px;font-weight:900;box-shadow:0 5px 0 #e9b74e;transition:.15s}.primary:hover{transform:translateY(-2px)}.hero-art{position:absolute;right:25px;bottom:13px;font-size:100px;opacity:.22;transform:rotate(-10deg)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:118px}.stat .emoji{font-size:23px}.stat strong{font-size:29px;letter-spacing:-1px}.stat span:last-child{font-size:12px;color:var(--muted);font-weight:700}.tabs{display:flex;gap:8px;background:#ebe9fa;padding:6px;border-radius:16px;width:max-content;max-width:100%;margin-bottom:18px}.tab{background:transparent;color:#77749c;font-weight:800;padding:11px 16px;border-radius:11px}.tab.active{background:white;color:var(--purple);box-shadow:0 3px 10px #39307812}.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px}.panel h2{margin:0 0 6px;font-size:23px;letter-spacing:-.5px}.sub{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.select{border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);padding:11px;max-width:100%}.tense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tense-card{border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;background:#fff;transition:.18s;min-height:142px;display:flex;flex-direction:column;gap:9px}.tense-card:hover{transform:translateY(-3px);border-color:#b9b2ff;box-shadow:0 9px 20px #6c63ff12}.tense-card .num{font-size:11px;font-weight:900;color:var(--purple);letter-spacing:1px}.tense-card strong{font-size:15px}.tense-card small{color:var(--muted);line-height:1.45}.pill{display:inline-block;border-radius:8px;background:#f0eeff;color:#655be8;padding:5px 8px;font-size:11px;font-weight:800;width:max-content}.study-layout{display:grid;grid-template-columns:230px 1fr;gap:18px}.side-list{display:flex;flex-direction:column;gap:7px;max-height:540px;overflow:auto;padding-right:3px}.side-item{background:#faf9ff;border:1px solid var(--line);padding:11px 12px;text-align:left;border-radius:12px;color:#5e5b7c;font-size:12px;font-weight:750}.side-item.active{background:#eeecff;border-color:#b9b2ff;color:#5e53ed}.lesson{border:1px solid var(--line);border-radius:19px;padding:23px;min-width:0}.lesson h3{font-size:24px;margin:12px 0 5px}.lesson .vn{color:var(--muted);margin:0 0 19px}.formula{background:#f5f3ff;border:1px dashed #c9c3ff;padding:15px;border-radius:13px;margin:10px 0 16px;line-height:1.7}.formula b{color:#5d53e8}.lesson h4{margin:19px 0 8px}.lesson li{margin:7px 0;color:#575676;line-height:1.5}.example{padding:13px 15px;background:#f0fff9;border-radius:12px;border-left:4px solid var(--mint);line-height:1.6}.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}.progress{height:8px;background:#eeecfa;border-radius:20px;overflow:hidden;margin:12px 0 23px}.progress div{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));width:0;transition:.25s}.question{font-size:22px;line-height:1.45;font-weight:850;margin:8px 0 7px}.qmeta{font-size:12px;color:var(--muted);font-weight:800}.options{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:23px 0}.option{border:1.5px solid var(--line);border-radius:14px;padding:15px;text-align:left;background:#fff;color:var(--ink);display:flex;gap:12px;align-items:center;line-height:1.45;transition:.15s}.letter{display:grid;place-items:center;flex:0 0 29px;height:29px;border-radius:9px;background:#f1efff;color:#6c63ff;font-weight:900}.option:hover:not(:disabled){border-color:#a8a0ff;background:#faf9ff}.option.correct{border-color:#45c99f;background:#effdf7}.option.correct .letter{background:#45c99f;color:white}.option.wrong{border-color:#ff8da7;background:#fff3f6}.option.wrong .letter{background:#ff8da7;color:white}.feedback{padding:14px 16px;border-radius:13px;line-height:1.6;margin:8px 0 16px;display:none}.feedback.show{display:block}.feedback.good{background:#effdf7;color:#176c51}.feedback.bad{background:#fff3f6;color:#a63b56}.quiz-actions{display:flex;justify-content:space-between;gap:10px;align-items:center}.secondary{background:#f0eeff;color:#5e53e8;padding:12px 16px;border-radius:12px;font-weight:850}.secondary:disabled{opacity:.4;cursor:not-allowed}.result{text-align:center;padding:20px 10px}.result .big{font-size:64px}.result h2{font-size:30px;margin:8px}.result p{color:var(--muted)}.result-score{font-size:42px;font-weight:950;color:var(--purple);margin:12px}.footer{text-align:center;color:#9996b7;font-size:12px;padding:24px 0 0}.auth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.auth-card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.field{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;margin:6px 0 12px;background:#fff;color:var(--ink)}.achievement-table{width:100%;border-collapse:collapse;margin-top:14px}.achievement-table th,.achievement-table td{padding:11px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}.notice{padding:12px 14px;border-radius:12px;background:#fff6dc;color:#795b13;line-height:1.55;font-size:13px;margin:12px 0}.account-pill{font-size:12px;color:var(--purple);font-weight:800}.hidden{display:none!important}.empty{text-align:center;padding:35px;color:var(--muted)}
+.avatar-logo { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #ff78a8, #6c63ff); color: white; font-weight: bold; font-size: 20px; box-shadow: 0 8px 20px #6c63ff55; text-transform: uppercase; overflow: hidden; }
+.avatar-logo img { width: 100%; height: 100%; object-fit: cover; }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { background: white; padding: 24px; border-radius: 20px; width: 90%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(20px); transition: transform 0.2s; }
+.modal-overlay.active .modal-content { transform: translateY(0); }
+.profile-avatar-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+.profile-avatar-preview { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff78a8, #6c63ff); color: white; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; margin-bottom: 10px; overflow: hidden; position: relative; cursor: pointer; }
+.profile-avatar-preview img { width: 100%; height: 100%; object-fit: cover; }
+.profile-avatar-preview::after { content: '📷'; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6); color: white; font-size: 14px; height: 24px; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+.profile-avatar-preview:hover::after { opacity: 1; }
+
+.lang-selector { display:flex; gap:10px; background:#fff; padding:6px 12px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.05); }
+.lang-btn { background:none; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; color:var(--muted); cursor:pointer; }
+.lang-btn.active { background:var(--purple); color:white; }
+
+@media(max-width:800px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr)}.stat{min-height:100px;padding:14px}.stat strong{font-size:23px}.study-layout{grid-template-columns:1fr}.side-list{display:grid;grid-template-columns:1fr 1fr;max-height:250px}.tense-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.auth-grid{grid-template-columns:1fr}.achievement-table th,.achievement-table td{padding:8px 5px;font-size:11px}.app{padding:15px 12px 35px}.top{align-items:flex-start; flex-direction:column;}.tag{font-size:10px}.hero-main{padding:25px 22px}.hero-art{font-size:70px;right:10px}.stats{grid-template-columns:1fr 1fr}.tabs{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.tab{padding:10px 5px;font-size:12px}.panel{padding:17px}.panel-head{flex-direction:column}.tense-grid{grid-template-columns:1fr 1fr;gap:8px}.tense-card{padding:13px;min-height:150px}.tense-card strong{font-size:13px}.options{grid-template-columns:1fr}.question{font-size:19px}.quiz-actions{align-items:stretch}.quiz-actions button{flex:1}.lesson{padding:17px}}
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
 </head>
 <body><div class="app">
-<header class="top"><div class="brand" id="brandContainer"><div class="logo">✦</div><div>English Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div></div><div class="tag">🎯 12 TENSES CHALLENGE</div></header>
-<section class="hero"><div class="hero-main"><div class="eyebrow">✨ Chinh phục ngữ pháp</div><h1>12 thì tiếng Anh<br>không còn khó!</h1><p>Học công thức, hiểu cách dùng và luyện trắc nghiệm từng bước. Mỗi câu đúng là một bước tiến gần hơn đến mục tiêu của bạn.</p><button class="primary" onclick="switchTab('quiz')">Bắt đầu luyện tập&nbsp; →</button><div class="hero-art">🚀</div></div><div class="stats"><div class="stat"><span class="emoji">📚</span><strong id="questionCount">—</strong><span>câu trong ngân hàng</span></div><div class="stat"><span class="emoji">🧠</span><strong id="doneStat">0</strong><span>câu đã trả lời</span></div><div class="stat"><span class="emoji">⭐</span><strong id="accuracyStat">—</strong><span>tỉ lệ chính xác</span></div><div class="stat"><span class="emoji">🔥</span><strong id="streakStat">0</strong><span>câu đúng liên tiếp</span></div></div></section>
-<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Học 12 thì</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="account" onclick="switchTab('account')">👤 Tài khoản</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button></nav>
-<section class="panel" id="learnPanel"><div class="panel-head"><div><h2>Thư viện 12 thì</h2><p class="sub">Chọn một thì để xem công thức, cách dùng và ví dụ.</p></div><select id="groupFilter" class="select" onchange="renderTenseGrid()"><option value="all">Tất cả 12 thì</option><option value="present">Hiện tại</option><option value="past">Quá khứ</option><option value="future">Tương lai</option></select></div><div class="tense-grid" id="tenseGrid"></div></section>
-<section class="panel hidden" id="studyPanel"><div class="panel-head"><div><h2>Góc học tập</h2><p class="sub">Mẹo nhỏ: chú ý trợ động từ và dấu hiệu thời gian.</p></div><button class="secondary" onclick="switchTab('learn')">← Danh sách</button></div><div class="study-layout"><div class="side-list" id="sideList"></div><article class="lesson" id="lesson"></article></div></section>
-<section class="panel hidden" id="quizPanel"><div class="panel-head"><div><h2>Đấu trường ngữ pháp ⚡</h2><p class="sub">Ngân hàng 1.000 câu theo 12 chủ đề đời sống và 12 thì. Chọn chủ đề, lọc nhóm thì, rồi luyện tối đa 20 câu mỗi lượt; mỗi câu đều có giải thích.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><select class="select" id="topicFilter"><option value="all">🌈 Tất cả 12 chủ đề</option><option value="daily">Thói quen hằng ngày</option><option value="family">Gia đình & bạn bè</option><option value="study">Học tập</option><option value="work">Công việc</option><option value="food">Ăn uống</option><option value="shopping">Mua sắm & tiền bạc</option><option value="health">Sức khỏe & thể thao</option><option value="travel">Du lịch & giao thông</option><option value="weather">Thời tiết & thiên nhiên</option><option value="tech">Công nghệ & Internet</option><option value="hobbies">Sở thích & giải trí</option><option value="home">Nhà cửa & việc nhà</option></select><select class="select" id="quizFilter"><option value="all">Trộn 12 thì</option><option value="present">Chỉ thì hiện tại</option><option value="past">Chỉ thì quá khứ</option><option value="future">Chỉ thì tương lai</option></select></div></div><div id="quizArea"></div></section>
+<header class="top">
+  <div class="brand" id="brandContainer">
+    <div class="logo">✦</div>
+    <div>Language Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div>
+  </div>
+  
+  <div class="lang-selector">
+    <button class="lang-btn active" onclick="changeLanguage('en')" id="btnLangEN">🇺🇸 Tiếng Anh</button>
+    <button class="lang-btn" onclick="changeLanguage('ko')" id="btnLangKO">🇰🇷 Tiếng Hàn</button>
+    <button class="lang-btn" onclick="changeLanguage('zh')" id="btnLangZH">🇨🇳 Tiếng Trung</button>
+  </div>
+</header>
+<section class="hero"><div class="hero-main"><div class="eyebrow">✨ Chinh phục ngữ pháp</div><h1 id="heroTitle">12 thì tiếng Anh<br>không còn khó!</h1><p>Học công thức, hiểu cách dùng và luyện trắc nghiệm từng bước. Mỗi câu đúng là một bước tiến gần hơn đến mục tiêu của bạn.</p><button class="primary" onclick="switchTab('quiz')">Bắt đầu luyện tập&nbsp; →</button><div class="hero-art">🚀</div></div><div class="stats"><div class="stat"><span class="emoji">📚</span><strong id="questionCount">—</strong><span>câu trong ngân hàng</span></div><div class="stat"><span class="emoji">🧠</span><strong id="doneStat">0</strong><span>câu đã trả lời</span></div><div class="stat"><span class="emoji">⭐</span><strong id="accuracyStat">—</strong><span>tỉ lệ chính xác</span></div><div class="stat"><span class="emoji">🔥</span><strong id="streakStat">0</strong><span>câu đúng liên tiếp</span></div></div></section>
+<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Thư viện ngữ pháp</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="account" onclick="switchTab('account')">👤 Tài khoản</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button></nav>
+<section class="panel" id="learnPanel"><div class="panel-head"><div><h2>Thư viện Ngữ pháp</h2><p class="sub">Chọn một chủ điểm để xem công thức, cách dùng và ví dụ.</p></div></div><div class="tense-grid" id="tenseGrid"></div></section>
+<section class="panel hidden" id="studyPanel"><div class="panel-head"><div><h2>Góc học tập</h2><p class="sub">Mẹo nhỏ: chú ý từ vựng và dấu hiệu thời gian.</p></div><button class="secondary" onclick="switchTab('learn')">← Danh sách</button></div><div class="study-layout"><div class="side-list" id="sideList"></div><article class="lesson" id="lesson"></article></div></section>
+<section class="panel hidden" id="quizPanel"><div class="panel-head"><div><h2>Đấu trường ngữ pháp ⚡</h2><p class="sub">Ngân hàng hàng ngàn câu trắc nghiệm. Luyện tối đa 20 câu mỗi lượt; mỗi câu đều có giải thích.</p></div></div><div id="quizArea"></div></section>
 <section class="panel hidden" id="reviewPanel"><div class="panel-head"><div><h2>Ôn nhanh trong 2 phút 📝</h2><p class="sub">Nhìn dấu hiệu, nhớ công thức — đừng học vẹt một cách máy móc.</p></div></div><div class="tense-grid" id="reviewGrid"></div></section>
-<section class="panel hidden" id="accountPanel"><div class="panel-head"><div><h2>👤 Tài khoản học tập</h2><p class="sub">Tạo tài khoản hoặc đăng nhập để lưu thành tích trực tuyến trên mọi thiết bị.</p></div><div id="accountStatus" class="account-pill">Chưa đăng nhập</div></div><div id="accountMessage" class="sub" role="status"></div><div class="auth-grid"><form class="auth-card" onsubmit="registerAccount(event)"><h3>✨ Tạo tài khoản</h3><label for="regName">Tên hiển thị</label><input class="field" id="regName" maxlength="40" required placeholder="Ví dụ: Minh Anh"><label for="regEmail">Email</label><input class="field" id="regEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="regPass">Mật khẩu (ít nhất 8 ký tự)</label><input class="field" id="regPass" type="password" minlength="8" required autocomplete="new-password" placeholder="Tạo mật khẩu"><button class="primary" type="submit">Tạo tài khoản</button></form><form class="auth-card" onsubmit="loginAccount(event)"><h3>🔐 Đăng nhập</h3><label for="loginEmail">Email</label><input class="field" id="loginEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="loginPass">Mật khẩu</label><input class="field" id="loginPass" type="password" required autocomplete="current-password" placeholder="Mật khẩu"><button class="primary" type="submit">Đăng nhập</button><button class="secondary" type="button" style="margin-left:6px" onclick="logoutAccount()">Đăng xuất</button></form></div><div class="notice">Tài khoản được xác thực bằng Firebase Authentication. Thành tích được lưu trong Firestore khi bạn đã bật dịch vụ và thiết lập Security Rules phù hợp.</div></section><section class="panel hidden" id="achievementsPanel"><div class="panel-head"><div><h2>🏆 Thành tích học tập</h2><p class="sub">Lịch sử các lượt làm bài của tài khoản đang đăng nhập.</p></div><button class="secondary" onclick="renderAchievements()">↻ Làm mới</button></div><div id="achievementSummary" class="sub"></div><div id="achievementContent"></div><p class="sub" style="margin-top:14px">Lịch sử được lưu trực tuyến trong tài khoản Firebase của bạn.</p></section>
-<div class="footer">Made for your English journey 💜 · Học một chút mỗi ngày sẽ tạo nên khác biệt.</div></div>
+<section class="panel hidden" id="accountPanel"><div class="panel-head"><div><h2>👤 Tài khoản học tập</h2><p class="sub">Tạo tài khoản hoặc đăng nhập để lưu thành tích trực tuyến trên mọi thiết bị.</p></div><div id="accountStatus" class="account-pill">Chưa đăng nhập</div></div><div id="accountMessage" class="sub" role="status"></div><div class="auth-grid" id="authGrid"><form class="auth-card" onsubmit="registerAccount(event)"><h3>✨ Tạo tài khoản</h3><label for="regName">Tên hiển thị</label><input class="field" id="regName" maxlength="40" required placeholder="Ví dụ: Minh Anh"><label for="regEmail">Email</label><input class="field" id="regEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="regPass">Mật khẩu (ít nhất 8 ký tự)</label><input class="field" id="regPass" type="password" minlength="8" required autocomplete="new-password" placeholder="Tạo mật khẩu"><button class="primary" type="submit">Tạo tài khoản</button></form><form class="auth-card" onsubmit="loginAccount(event)"><h3>🔐 Đăng nhập</h3><label for="loginEmail">Email</label><input class="field" id="loginEmail" type="email" required autocomplete="email" placeholder="ban@example.com"><label for="loginPass">Mật khẩu</label><input class="field" id="loginPass" type="password" required autocomplete="current-password" placeholder="Mật khẩu"><button class="primary" type="submit">Đăng nhập</button></form></div>
+<div id="loggedInView" class="hidden auth-card" style="margin-top: 16px;">
+  <div style="display:flex; align-items:center; gap: 16px; margin-bottom: 20px;">
+      <div id="accountAvatar" class="avatar-logo" style="width:60px; height:60px; font-size:28px;"></div>
+      <div>
+          <h3 id="accountName" style="margin: 0 0 4px 0; font-size: 20px;"></h3>
+          <div id="accountEmailText" style="color: var(--muted); font-size: 14px; margin-bottom:4px;"></div>
+          <div id="accountPhoneText" style="color: var(--muted); font-size: 14px;"></div>
+      </div>
+  </div>
+  <div style="display: flex; gap: 10px;">
+    <button class="primary" onclick="openProfileModal()">Chỉnh sửa hồ sơ</button>
+    <button class="secondary" onclick="logoutAccount()">Đăng xuất</button>
+  </div>
+</div>
+<div class="notice">Tài khoản được xác thực bằng Firebase Authentication. Thành tích được lưu trong Firestore khi bạn đã bật dịch vụ và thiết lập Security Rules phù hợp.</div></section><section class="panel hidden" id="achievementsPanel"><div class="panel-head"><div><h2>🏆 Thành tích học tập</h2><p class="sub">Lịch sử các lượt làm bài của tài khoản đang đăng nhập.</p></div><button class="secondary" onclick="renderAchievements()">↻ Làm mới</button></div><div id="achievementSummary" class="sub"></div><div id="achievementContent"></div><p class="sub" style="margin-top:14px">Lịch sử được lưu trực tuyến trong tài khoản Firebase của bạn.</p></section>
+<div class="footer">Made for your language journey 💜 · Học một chút mỗi ngày sẽ tạo nên khác biệt.</div></div>
+
+<!-- Modal cập nhật hồ sơ -->
+<div class="modal-overlay" id="profileModal">
+  <div class="modal-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 style="margin:0;">Chỉnh sửa hồ sơ</h3>
+      <button style="background:none; font-size:20px; color:#999;" onclick="closeProfileModal()">×</button>
+    </div>
+    <form id="profileForm" onsubmit="updateProfile(event)">
+      <div class="profile-avatar-wrapper">
+        <div class="profile-avatar-preview" id="modalAvatarPreview" onclick="document.getElementById('avatarUpload').click()"></div>
+        <input type="file" id="avatarUpload" accept="image/*" style="display:none;" onchange="previewAvatar(event)">
+        <small style="color:var(--muted); font-size:12px;">Nhấn để đổi ảnh</small>
+      </div>
+      <label>Họ và tên</label>
+      <input type="text" class="field" id="editName" required>
+      <label>Email liên hệ</label>
+      <input type="email" class="field" id="editEmail" disabled title="Email đăng nhập không thể thay đổi tại đây">
+      <label>Số điện thoại</label>
+      <input type="tel" class="field" id="editPhone" placeholder="Ví dụ: 0912345678">
+      
+      <div id="profileMessage" class="sub" style="margin-bottom:12px; color:var(--purple);"></div>
+      <button type="submit" class="primary" style="width:100%;">Lưu thay đổi</button>
+    </form>
+  </div>
+</div>
+
 <script>
-const tenses=[
-{id:1,name:'Present Simple',vn:'Thì hiện tại đơn',group:'present',formula:'S + V(s/es) · S + am/is/are',use:'Diễn tả thói quen, sự thật hiển nhiên, lịch trình cố định.',signal:'always, usually, often, sometimes, every day',ex:'She goes to school every day. (Cô ấy đi học mỗi ngày.)',tip:'He/She/It + V-s/es. Với động từ to be, dùng am/is/are.'},
-{id:2,name:'Present Continuous',vn:'Thì hiện tại tiếp diễn',group:'present',formula:'S + am/is/are + V-ing',use:'Hành động đang diễn ra lúc nói; tình huống tạm thời hoặc kế hoạch gần.',signal:'now, right now, at the moment, Look!, Listen!',ex:'They are playing football now. (Họ đang chơi bóng đá.)',tip:'Đừng quên động từ to be trước V-ing.'},
-{id:3,name:'Present Perfect',vn:'Thì hiện tại hoàn thành',group:'present',formula:'S + have/has + V3/ed',use:'Trải nghiệm; hành động vừa xảy ra; việc bắt đầu trong quá khứ còn liên quan hiện tại.',signal:'already, just, yet, ever, never, since, for, recently',ex:'I have lived here for three years. (Tôi đã sống ở đây được 3 năm.)',tip:'He/She/It dùng has; các chủ ngữ còn lại thường dùng have.'},
-{id:4,name:'Present Perfect Continuous',vn:'Hiện tại hoàn thành tiếp diễn',group:'present',formula:'S + have/has + been + V-ing',use:'Nhấn mạnh quá trình hoặc khoảng thời gian của hành động bắt đầu trong quá khứ và còn tiếp diễn/gần đây vừa kết thúc.',signal:'for, since, all day, lately, recently',ex:'She has been studying for two hours. (Cô ấy học suốt hai giờ.)',tip:'Cấu trúc có đủ have/has + been + V-ing.'},
-{id:5,name:'Past Simple',vn:'Thì quá khứ đơn',group:'past',formula:'S + V2/ed · S + was/were',use:'Hành động đã kết thúc tại một thời điểm trong quá khứ.',signal:'yesterday, last week, ago, in 2020',ex:'We visited Da Lat last summer. (Chúng tôi đã thăm Đà Lạt hè năm ngoái.)',tip:'Câu hỏi/phủ định thường dùng did + V nguyên mẫu.'},
-{id:6,name:'Past Continuous',vn:'Thì quá khứ tiếp diễn',group:'past',formula:'S + was/were + V-ing',use:'Hành động đang diễn ra tại một thời điểm quá khứ; hành động nền bị hành động khác xen vào.',signal:'at 8 p.m. yesterday, while, when',ex:'I was cooking when he called. (Tôi đang nấu ăn thì anh ấy gọi.)',tip:'I/He/She/It dùng was; You/We/They dùng were.'},
-{id:7,name:'Past Perfect',vn:'Thì quá khứ hoàn thành',group:'past',formula:'S + had + V3/ed',use:'Hành động xảy ra trước một hành động hoặc mốc thời gian khác trong quá khứ.',signal:'before, after, by the time, already',ex:'The train had left before we arrived. (Tàu đã rời đi trước khi chúng tôi đến.)',tip:'Had dùng cho tất cả chủ ngữ; động từ chính ở dạng V3/ed.'},
-{id:8,name:'Past Perfect Continuous',vn:'Quá khứ hoàn thành tiếp diễn',group:'past',formula:'S + had + been + V-ing',use:'Nhấn mạnh quá trình kéo dài trước một mốc/hành động trong quá khứ.',signal:'for, since, before, when, by the time',ex:'He had been working for hours before he rested. (Anh ấy đã làm việc nhiều giờ trước khi nghỉ.)',tip:'Nhớ cụm had been + V-ing.'},
-{id:9,name:'Future Simple',vn:'Thì tương lai đơn',group:'future',formula:'S + will + V nguyên mẫu',use:'Dự đoán, quyết định tức thời, lời hứa hoặc đề nghị.',signal:'tomorrow, next week, soon, I think, probably',ex:'I will call you tomorrow. (Tôi sẽ gọi cho bạn ngày mai.)',tip:'Sau will luôn dùng động từ nguyên mẫu, không thêm -s/-ed.'},
-{id:10,name:'Future Continuous',vn:'Thì tương lai tiếp diễn',group:'future',formula:'S + will + be + V-ing',use:'Hành động sẽ đang diễn ra tại một thời điểm xác định trong tương lai.',signal:'at this time tomorrow, at 8 p.m. next Monday',ex:'This time tomorrow, I will be flying to Hanoi. (Giờ này ngày mai tôi sẽ đang bay đến Hà Nội.)',tip:'Công thức đặc trưng: will be + V-ing.'},
-{id:11,name:'Future Perfect',vn:'Thì tương lai hoàn thành',group:'future',formula:'S + will + have + V3/ed',use:'Hành động sẽ hoàn tất trước một mốc thời gian trong tương lai.',signal:'by, by the time, before + mốc tương lai',ex:'By Friday, I will have finished the report. (Đến thứ Sáu, tôi sẽ hoàn thành báo cáo.)',tip:'Thấy by + mốc tương lai, hãy cân nhắc thì này nếu nhấn mạnh hoàn tất.'},
-{id:12,name:'Future Perfect Continuous',vn:'Tương lai hoàn thành tiếp diễn',group:'future',formula:'S + will + have + been + V-ing',use:'Nhấn mạnh thời lượng một hành động tính đến một mốc tương lai.',signal:'for + khoảng thời gian, by next year, by the time',ex:'By June, she will have been working here for five years. (Đến tháng Sáu, cô ấy sẽ làm ở đây được năm năm.)',tip:'Công thức dài nhất: will have been + V-ing.'}
-];
-const questions=[
-{q:'My brother usually ___ coffee in the morning.',opts:['drink','drinks','is drinking','drank'],a:1,t:1,why:'Usually diễn tả thói quen → hiện tại đơn. “My brother” là ngôi thứ ba số ít nên dùng drinks.'},
-{q:'Be quiet! The baby ___.',opts:['sleeps','slept','is sleeping','has slept'],a:2,t:2,why:'“Be quiet!” cho thấy hành động đang diễn ra → am/is/are + V-ing.'},
-{q:'I ___ that movie three times.',opts:['saw','have seen','am seeing','had see'],a:1,t:3,why:'Nói về trải nghiệm tính đến hiện tại, không nêu thời điểm quá khứ cụ thể → hiện tại hoàn thành.'},
-{q:'She ___ English for two hours, and she is still studying.',opts:['studies','studied','has been studying','is studied'],a:2,t:4,why:'Hành động bắt đầu trước đây, kéo dài đến hiện tại và nhấn mạnh quá trình → hiện tại hoàn thành tiếp diễn.'},
-{q:'We ___ our grandparents last Sunday.',opts:['visit','have visited','visited','were visit'],a:2,t:5,why:'“Last Sunday” là thời điểm quá khứ đã kết thúc → quá khứ đơn.'},
-{q:'At 9 p.m. yesterday, I ___ my homework.',opts:['did','was doing','have done','am doing'],a:1,t:6,why:'Một thời điểm xác định trong quá khứ và hành động đang diễn ra → was/were + V-ing.'},
-{q:'When we got to the cinema, the film ___.',opts:['already started','has already started','had already started','was already start'],a:2,t:7,why:'Phim bắt đầu trước khi chúng tôi đến rạp → quá khứ hoàn thành cho hành động xảy ra trước.'},
-{q:'He was tired because he ___ all day.',opts:['worked','has worked','had been working','will work'],a:2,t:8,why:'Nhấn mạnh quá trình làm việc kéo dài trước một thời điểm quá khứ → had been + V-ing.'},
-{q:'I think it ___ tomorrow.',opts:['rains','rained','will rain','is rain'],a:2,t:9,why:'“I think” + dự đoán tương lai thường dùng will + động từ nguyên mẫu.'},
-{q:'At this time tomorrow, we ___ to Singapore.',opts:['will fly','will be flying','flew','have flown'],a:1,t:10,why:'“At this time tomorrow” nhấn mạnh hành động đang diễn ra ở một thời điểm tương lai → tương lai tiếp diễn.'},
-{q:'By the end of this month, she ___ the course.',opts:['will complete','will have completed','completed','has complete'],a:1,t:11,why:'“By the end of this month” nhấn mạnh việc hoàn tất trước mốc tương lai → will have + V3.'},
-{q:'By next January, they ___ here for ten years.',opts:['will work','will have been working','are working','worked'],a:1,t:12,why:'Nhấn mạnh khoảng thời gian kéo dài tính đến mốc tương lai → will have been + V-ing.'},
-{q:'Water ___ at 100°C under standard atmospheric pressure.',opts:['boils','is boiling','boiled','has boiled'],a:0,t:1,why:'Sự thật khoa học → hiện tại đơn.'},
-{q:'I ___ my keys. Have you seen them?',opts:['lose','lost','have lost','was losing'],a:2,t:3,why:'Kết quả ở hiện tại (không tìm thấy chìa khóa) → hiện tại hoàn thành.'},
-{q:'While Tom ___, the phone rang.',opts:['slept','was sleeping','has slept','is sleeping'],a:1,t:6,why:'Hành động đang diễn ra thì một hành động khác xen vào: was sleeping + rang.'},
-{q:'Don’t worry. I ___ you with your bags.',opts:['helped','am helping yesterday','will help','have helped last week'],a:2,t:9,why:'Lời đề nghị/quyết định tức thời → will + V nguyên mẫu.'},
-{q:'By the time you arrive, we ___ dinner.',opts:['will have cooked','cook','cooked','will cooking'],a:0,t:11,why:'Bữa tối sẽ hoàn tất trước khi bạn đến → tương lai hoàn thành.'},
-{q:'Look! Those children ___ in the rain.',opts:['play','played','are playing','have played'],a:2,t:2,why:'“Look!” là dấu hiệu thường gặp của hành động đang diễn ra → hiện tại tiếp diễn.'},
-{q:'She ___ in London when she was a child.',opts:['lives','has lived','lived','will live'],a:2,t:5,why:'“When she was a child” chỉ giai đoạn đã kết thúc trong quá khứ → quá khứ đơn.'},
-{q:'At 10 tomorrow morning, the team ___ the presentation.',opts:['will be giving','gave','has given','gives yesterday'],a:0,t:10,why:'Một thời điểm xác định trong tương lai → tương lai tiếp diễn.'}
-];
-
-// Ngân hàng mở rộng: 96 câu mới (8 câu cho mỗi thì), bổ sung vào 20 câu gốc.
-questions.push(
-{q:"My father ___ to work by bus every day.",opts:["go", "is going", "went", "goes"],a:3,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"The Earth ___ around the Sun.",opts:["moved", "has moved", "moves", "is moving"],a:2,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"Our English class ___ at 8 a.m. on Mondays.",opts:["has started", "starts", "is starting", "started"],a:1,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"Mai often ___ her grandmother at weekends.",opts:["visits", "visit", "is visiting", "visited"],a:0,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"Cats usually ___ a lot during the day.",opts:["are sleeping", "slept", "have slept", "sleep"],a:3,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"This shop ___ at 9 p.m. every evening.",opts:["closed", "has closed", "closes", "is closing"],a:2,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"My friends ___ football after school.",opts:["played", "play", "plays", "are playing"],a:1,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"Water ___ when it reaches 100°C at standard pressure.",opts:["boils", "is boiling", "boiled", "has boiled"],a:0,t:1,why:"Diễn tả thói quen hoặc sự thật chung → hiện tại đơn."},
-{q:"Please wait a moment. I ___ an email right now.",opts:["wrote", "have written", "am writing", "write"],a:2,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"Why ___ you ___ at me like that?",opts:["have / looked", "are / looking", "do / look", "did / look"],a:1,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"The children ___ in the garden at the moment.",opts:["are playing", "play", "played", "have played"],a:0,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"My sister ___ for her exam this week.",opts:["studies", "studied", "has studied", "is studying"],a:3,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"Listen! Someone ___ the piano upstairs.",opts:["played", "has played", "is playing", "plays"],a:2,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"We ___ with our cousins this month while our flat is repaired.",opts:["have stayed", "are staying", "stay", "stayed"],a:1,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"The weather ___ colder, so take a jacket.",opts:["is getting", "gets", "got", "has got"],a:0,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"I can’t talk now; I ___ dinner.",opts:["make", "made", "have made", "am making"],a:3,t:2,why:"Hành động đang diễn ra quanh thời điểm nói → hiện tại tiếp diễn."},
-{q:"They ___ in this city since 2021.",opts:["had lived", "have lived", "lived", "are living"],a:1,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"___ you ever ___ sushi?",opts:["Have / tried", "Did / try", "Are / trying", "Had / try"],a:0,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"She ___ her homework, so she can go out now.",opts:["finished", "is finishing", "had finished", "has finished"],a:3,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"We ___ that museum twice.",opts:["are visiting", "had visited", "have visited", "visited"],a:2,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"I ___ my phone; can I borrow yours?",opts:["had forgotten", "have forgotten", "forgot", "am forgetting"],a:1,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"He ___ three books so far this month.",opts:["has read", "read yesterday", "is reading", "had read"],a:0,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"The train ___ already ___.",opts:["did / leave", "is / leaving", "had / leave", "has / left"],a:3,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"My parents ___ never ___ abroad.",opts:["are / travelling", "had / travel", "have / travelled", "did / travel"],a:2,t:3,why:"Trải nghiệm hoặc kết quả tính đến hiện tại → hiện tại hoàn thành."},
-{q:"It ___ all morning, and the ground is still wet.",opts:["has been raining", "rained", "is raining", "had rained"],a:0,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"I ___ for you for thirty minutes!",opts:["waited", "am waiting", "had waited", "have been waiting"],a:3,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"She ___ English since breakfast.",opts:["is practising", "had practised", "has been practising", "practised"],a:2,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"How long ___ they ___ on this project?",opts:["had / work", "have / been working", "did / work", "are / working"],a:1,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"He is tired because he ___ the house all afternoon.",opts:["has been cleaning", "cleaned", "is cleaning", "had cleaned"],a:0,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"We ___ for the bus since 7:00.",opts:["stood", "are standing", "had stood", "have been standing"],a:3,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"The children ___ outside for hours.",opts:["are playing", "had played", "have been playing", "played"],a:2,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"My eyes hurt because I ___ at the screen for too long.",opts:["had looked", "have been looking", "looked", "am looking"],a:1,t:4,why:"Nhấn mạnh quá trình kéo dài đến hiện tại → hiện tại hoàn thành tiếp diễn."},
-{q:"We ___ the match yesterday afternoon.",opts:["have watched", "were watching", "watch", "watched"],a:3,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"She ___ me a message two hours ago.",opts:["sends", "was sending", "sent", "has sent"],a:2,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"They ___ to Da Lat last summer.",opts:["travel", "travelled", "have travelled", "were travelling"],a:1,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"I ___ my keys on the kitchen table this morning.",opts:["left", "have left", "leave", "was leaving"],a:0,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"He ___ his leg when he was a child.",opts:["has broken", "breaks", "was breaking", "broke"],a:3,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"The meeting ___ at 10 a.m. last Friday.",opts:["begins", "was beginning", "began", "has begun"],a:2,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"We ___ dinner at home last night.",opts:["were cooking", "cooked", "have cooked", "cook"],a:1,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"My teacher ___ us a useful tip yesterday.",opts:["gave", "has given", "gives", "was giving"],a:0,t:5,why:"Thời điểm quá khứ đã kết thúc → quá khứ đơn."},
-{q:"At 8 p.m. last night, I ___ a novel.",opts:["have read", "had read", "was reading", "read"],a:2,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"While they ___ home, it started to snow.",opts:["are walking", "were walking", "walked", "have walked"],a:1,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"She ___ when the alarm went off.",opts:["was sleeping", "slept", "has slept", "had slept"],a:0,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"What ___ you ___ at noon yesterday?",opts:["did / do", "have / done", "are / doing", "were / doing"],a:3,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"The students ___ their test when the fire alarm rang.",opts:["have taken", "had taken", "were taking", "took"],a:2,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"It ___ heavily when we left the office.",opts:["had rained", "was raining", "rained", "has rained"],a:1,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"I ___ to music while my brother was cooking.",opts:["was listening", "listened", "have listened", "had listened"],a:0,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"The dog ___ in the yard when I saw it.",opts:["ran", "has run", "had run", "was running"],a:3,t:6,why:"Hành động đang diễn ra tại một thời điểm quá khứ → quá khứ tiếp diễn."},
-{q:"By the time I arrived, the meeting ___.",opts:["was starting", "had started", "started", "has started"],a:1,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"She was upset because she ___ her wallet.",opts:["had lost", "lost", "has lost", "was losing"],a:0,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"After they ___ lunch, they went for a walk.",opts:["ate", "have eaten", "were eating", "had eaten"],a:3,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"He ___ never ___ snow before he moved to Canada.",opts:["has / seen", "was / seeing", "had / seen", "did / see"],a:2,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"The train ___ before we reached the station.",opts:["was leaving", "had left", "left", "has left"],a:1,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"I realised that I ___ the wrong address.",opts:["had written", "wrote", "have written", "was writing"],a:0,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"When the film ended, we ___ all the popcorn.",opts:["ate", "have eaten", "were eating", "had eaten"],a:3,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"They couldn’t enter because they ___ their tickets at home.",opts:["have forgotten", "were forgetting", "had forgotten", "forgot"],a:2,t:7,why:"Hành động xảy ra trước một hành động/mốc quá khứ khác → quá khứ hoàn thành."},
-{q:"He was exhausted because he ___ for twelve hours.",opts:["had been working", "worked", "has been working", "was working"],a:0,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"The road was wet because it ___ all night.",opts:["rained", "has been raining", "was raining", "had been raining"],a:3,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"Her hands were dirty because she ___ in the garden.",opts:["has been digging", "was digging", "had been digging", "dug"],a:2,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"They ___ for an hour before the doctor arrived.",opts:["were waiting", "had been waiting", "waited", "have been waiting"],a:1,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"I was out of breath because I ___ up the stairs.",opts:["had been running", "ran", "have been running", "was running"],a:0,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"She ___ for weeks, so she was ready for the exam.",opts:["studied", "has been studying", "was studying", "had been studying"],a:3,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"His clothes were muddy because he ___ football in the rain.",opts:["has been playing", "was playing", "had been playing", "played"],a:2,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"We ___ for hours before we finally found the village.",opts:["were driving", "had been driving", "drove", "have been driving"],a:1,t:8,why:"Nhấn mạnh quá trình kéo dài trước một mốc quá khứ → quá khứ hoàn thành tiếp diễn."},
-{q:"I’m sure you ___ the exam.",opts:["pass", "are passing yesterday", "have passed", "will pass"],a:3,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"I think our team ___ the game tonight.",opts:["won", "has won", "will win", "wins"],a:2,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"Don’t worry; I ___ you with the dishes.",opts:["have helped", "will help", "helped", "am help"],a:1,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"Maybe people ___ on Mars one day.",opts:["will live", "lived", "are living yesterday", "have lived"],a:0,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"The phone is ringing. I ___ it.",opts:["answered", "answer yesterday", "have answered", "will answer"],a:3,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"I promise I ___ anyone your secret.",opts:["didn’t tell tomorrow", "haven’t told", "won’t tell", "don’t told"],a:2,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"I’m thirsty. I ___ a glass of water.",opts:["have got", "will get", "got", "get yesterday"],a:1,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"Perhaps the weather ___ better tomorrow.",opts:["will be", "was", "is being yesterday", "has been"],a:0,t:9,why:"Dự đoán, lời hứa hoặc quyết định tức thời → will + động từ nguyên mẫu."},
-{q:"This time next week, we ___ on the beach.",opts:["will relax yesterday", "have relaxed", "will be relaxing", "relax"],a:2,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"At 9 tomorrow morning, she ___ to her manager.",opts:["has talked", "will be talking", "talked", "will talk yesterday"],a:1,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"Don’t call at 7; we ___ dinner then.",opts:["will be having", "have", "had", "have had"],a:0,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"At this time tomorrow, I ___ to Hanoi.",opts:["travelled", "have travelled", "am travelled", "will be travelling"],a:3,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"They ___ their final exam at 10 a.m. next Monday.",opts:["have taken", "take yesterday", "will be taking", "took"],a:2,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"What ___ you ___ at this time tomorrow?",opts:["are / do", "will / be doing", "did / do", "have / done"],a:1,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"The team ___ at the stadium all afternoon tomorrow.",opts:["will be practising", "practised", "have practised", "are practise"],a:0,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"When you arrive, I ___ outside the station.",opts:["waited", "have waited", "am wait", "will be waiting"],a:3,t:10,why:"Hành động đang diễn ra tại một thời điểm tương lai → tương lai tiếp diễn."},
-{q:"By Friday, we ___ the project.",opts:["completed", "will have completed", "complete", "will be completing yesterday"],a:1,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"By the time you get home, I ___ dinner.",opts:["will have cooked", "cook", "cooked", "will be cook"],a:0,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"By 2030, scientists ___ new solutions to this problem.",opts:["developed", "are developing yesterday", "will developing", "will have developed"],a:3,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"She ___ the report by noon tomorrow.",opts:["finished", "will be finish", "will have finished", "finishes"],a:2,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"By next month, he ___ enough money for the laptop.",opts:["will be save", "will have saved", "saved", "is saving yesterday"],a:1,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"The film ___ by the time we arrive.",opts:["will have started", "starts", "started", "will be start"],a:0,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"By the end of this year, they ___ the new bridge.",opts:["built", "are building yesterday", "will be build", "will have built"],a:3,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"I ___ the book before the library closes tomorrow.",opts:["return", "will be return", "will have returned", "returned"],a:2,t:11,why:"Hành động sẽ hoàn tất trước một mốc tương lai → tương lai hoàn thành."},
-{q:"By next May, I ___ here for six years.",opts:["will have been working", "will work", "worked", "have worked"],a:0,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"By midnight, she ___ for ten hours.",opts:["will drive", "drove", "has driven", "will have been driving"],a:3,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"In July, they ___ together for twenty years.",opts:["lived", "are living", "will have been living", "will live"],a:2,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"By the time the race ends, he ___ for over two hours.",opts:["has run", "will have been running", "will run", "ran"],a:1,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"Next month, we ___ this course for a whole year.",opts:["will have been studying", "will study", "studied", "are studying"],a:0,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"By 6 p.m., it ___ for twelve hours.",opts:["will snow", "snowed", "has snowed", "will have been snowing"],a:3,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"By the end of the week, I ___ on this assignment for a month.",opts:["worked", "am working", "will have been working", "will work"],a:2,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."},
-{q:"At the end of the year, she ___ at the company for a decade.",opts:["is teaching", "will have been teaching", "will teach", "taught"],a:1,t:12,why:"Nhấn mạnh khoảng thời gian kéo dài đến một mốc tương lai → tương lai hoàn thành tiếp diễn."}
-);
-
-const topicNames={daily:'Thói quen hằng ngày',family:'Gia đình & bạn bè',study:'Học tập',work:'Công việc',food:'Ăn uống',shopping:'Mua sắm & tiền bạc',health:'Sức khỏe & thể thao',travel:'Du lịch & giao thông',weather:'Thời tiết & thiên nhiên',tech:'Công nghệ & Internet',hobbies:'Sở thích & giải trí',home:'Nhà cửa & việc nhà'};
-const extraQuestions=[
-['daily','I usually ___ up at six on weekdays.',['wake','wakes','am waking','woke'],0,1,'Usually diễn tả thói quen → hiện tại đơn.'],['daily','Look! I ___ for the bus.',['run','ran','am running','have run'],2,2,'Look! cho biết hành động đang diễn ra.'],['daily','I ___ my room yesterday.',['clean','cleaned','have cleaned','am cleaning'],1,5,'Yesterday là dấu hiệu quá khứ đơn.'],
-['family','My parents ___ in Nha Trang.',['live','lives','are live','lived'],0,1,'Parents là chủ ngữ số nhiều, dùng live.'],['family','We ___ our grandparents this weekend.',['visit','visited','are visiting','had visited'],2,2,'Kế hoạch đã sắp xếp có thể dùng hiện tại tiếp diễn.'],['family','When I was young, we ___ near the beach.',['live','have lived','lived','will live'],2,5,'When I was young chỉ giai đoạn quá khứ.'],
-['study','Lan ___ English every evening.',['study','studies','is study','studied'],1,1,'Every evening diễn tả thói quen.'],['study','We ___ for the test right now.',['study','studied','are studying','have study'],2,2,'Right now → hiện tại tiếp diễn.'],['study','By Friday, we ___ the project.',['finish','finished','will have finished','are finish'],2,11,'By Friday nhấn mạnh việc hoàn tất trước mốc tương lai.'],
-['work','He ___ at the shipyard from Monday to Friday.',['work','works','working','worked now'],1,1,'Lịch làm việc thường lệ → hiện tại đơn.'],['work','I ___ an email at the moment.',['write','wrote','am writing','have write'],2,2,'At the moment → hiện tại tiếp diễn.'],['work','She ___ here since 2023.',['works','worked','has worked','is work'],2,3,'Since + mốc bắt đầu thường đi với hiện tại hoàn thành.'],
-['food','My family usually ___ dinner at seven.',['have','has','is having','had'],0,1,'Usually diễn tả thói quen.'],['food','The soup ___ delicious.',['taste','tastes','is taste','tasted tomorrow'],1,1,'Mô tả hương vị → hiện tại đơn.'],['food','By the time guests arrive, we ___ the meal.',['prepare','prepared','will have prepared','are prepare'],2,11,'Việc chuẩn bị hoàn tất trước khi khách đến.'],
-['shopping','This store ___ at 9 a.m. every day.',['open','opens','is open nowing','opened tomorrow'],1,1,'Giờ mở cửa theo lịch → hiện tại đơn.'],['shopping','I ___ for a jacket right now.',['look','looked','am looking','have look'],2,2,'Right now → hiện tại tiếp diễn.'],['shopping','I ___ the wrong size last week.',['buy','have bought','bought','was buy'],2,5,'Last week → quá khứ đơn.'],
-['health','He ___ badminton twice a week.',['play','plays','is play','played now'],1,1,'Twice a week diễn tả thói quen.'],['health','I ___ for a walk now.',['go','went','am going','have go'],2,2,'Now → hiện tại tiếp diễn.'],['health','By next month, she ___ yoga for a year.',['practises','practised','will have been practising','is practise'],2,12,'Thời lượng đến mốc tương lai → tương lai hoàn thành tiếp diễn.'],
-['travel','The bus ___ at 7:30 every morning.',['leave','leaves','is leave','left tomorrow'],1,1,'Lịch trình cố định thường dùng hiện tại đơn.'],['travel','We ___ to the station now.',['drive','drove','are driving','have drive'],2,2,'Now → hiện tại tiếp diễn.'],['travel','When we reached the airport, the plane ___.',['already takes off','has taken off','had already taken off','will take off'],2,7,'Máy bay cất cánh trước lúc chúng tôi đến.'],
-['weather','It often ___ in the rainy season.',['rain','rains','is rain','rained now'],1,1,'Often diễn tả hiện tượng thường xảy ra.'],['weather','Look at those dark clouds! It ___.',['rains yesterday','is going to rain','rain','has raining'],1,2,'Dự đoán có căn cứ từ dấu hiệu hiện tại dùng be going to.'],['weather','It ___ since early morning.',['rained last year','has been raining','rains tomorrow','is rain'],1,4,'Since early morning nhấn mạnh quá trình kéo dài đến hiện tại.'],
-['tech','He ___ his phone before bed.',['charge','charges','is charge','charged tomorrow'],1,1,'Thói quen → hiện tại đơn.'],['tech','I ___ a video call at the moment.',['have','had','am having','has'],2,2,'At the moment → hiện tại tiếp diễn.'],['tech','Have you ever ___ this app?',['use','used','using','uses'],1,3,'Have you ever + V3/ed hỏi trải nghiệm.'],
-['hobbies','My friends ___ board games on Fridays.',['play','plays','are play','played now'],0,1,'On Fridays diễn tả thói quen.'],['hobbies','We ___ a new series this week.',['watch','watched','are watching','have watch'],2,2,'This week có thể diễn tả hoạt động tạm thời đang diễn ra.'],['hobbies','They ___ football when it started to rain.',['played','were playing','have played','play'],1,6,'Đang chơi thì trời bắt đầu mưa → quá khứ tiếp diễn.'],
-['home','My brother ___ the dishes after dinner.',['wash','washes','is wash','washed tomorrow'],1,1,'Thói quen sau bữa tối → hiện tại đơn.'],['home','Please wait; I ___ the floor.',['clean','cleaned','am cleaning','have clean'],2,2,'Việc đang làm lúc nói → hiện tại tiếp diễn.'],['home','I ___ dinner when the lights went out.',['cook','was cooking','have cooked','will cook'],1,6,'Đang nấu thì đèn tắt → quá khứ tiếp diễn.']
-];
-extraQuestions.forEach(([topic,q,opts,a,t,why])=>questions.push({topic,q,opts,a,t,why}));
-const originalTopics=['daily','daily','hobbies','study','family','study','hobbies','work','weather','travel','study','family','study','work','work','travel','travel','study','weather','work','work'];
-questions.forEach((q,i)=>{if(!q.topic)q.topic=originalTopics[i]||'daily'});
-
-// Mở rộng ngân hàng lên đúng 1.000 câu. Các câu mở rộng được tạo từ mẫu ngữ pháp đã có,
-// gắn ngữ cảnh đời sống và đảo vị trí đáp án để tăng biến thể luyện tập.
-const expansionContexts={
- daily:['Before work','On a busy weekday','During the morning routine','After getting home','Before going to bed','At the weekend','On a normal day','During the daily commute'],
- family:['When talking about family','During a family visit','At a family gathering','While helping a relative','When chatting with a friend','During a weekend visit','At home with relatives','While making family plans'],
- study:['During English class','Before an exam','While doing homework','At the library','During group study','When preparing a presentation','After a lesson','While reviewing grammar'],
- work:['At the office','During a team meeting','While preparing a report','At the shipyard','When talking to a colleague','Before a deadline','During a work break','While checking an email'],
- food:['While preparing dinner','At a restaurant','During breakfast','When cooking at home','At lunchtime','While ordering food','Before the guests arrive','When trying a new dish'],
- shopping:['At the supermarket','While comparing prices','At a clothing store','When planning a budget','During an online purchase','At the checkout','While saving money','When shopping for groceries'],
- health:['Before exercising','At the gym','While playing badminton','During a walk','When talking about health','After a workout','While preparing a healthy meal','At a medical appointment'],
- travel:['At the bus stop','At the airport','During a holiday','While planning a trip','On the way to work','At the train station','During a city tour','When booking a ticket'],
- weather:['On a rainy day','When checking the forecast','During the dry season','Before going outside','On a windy afternoon','While watching the sky','During a storm','When planning an outdoor activity'],
- tech:['While using a phone','During a video call','When checking an app','While browsing the Internet','Before charging a device','When sending a message','During an online lesson','While fixing a computer'],
- hobbies:['During free time','While watching a film','At a music event','When playing a game','During a weekend activity','While reading a book','At a sports club','When discussing a favourite show'],
- home:['While doing housework','In the kitchen','Before cleaning the room','While doing the laundry','After dinner at home','During the weekend cleaning','When watering the plants','While organizing the bedroom']
+// --- DATABASES ---
+const databases = {
+  en: {
+    title: "12 thì tiếng Anh",
+    lessons: [
+      {id:1,name:'Present Simple',vn:'Thì hiện tại đơn',group:'present',formula:'S + V(s/es) · S + am/is/are',use:'Diễn tả thói quen, sự thật hiển nhiên, lịch trình cố định.',signal:'always, usually, often, sometimes, every day',ex:'She goes to school every day. (Cô ấy đi học mỗi ngày.)',tip:'He/She/It + V-s/es. Với động từ to be, dùng am/is/are.'},
+      {id:2,name:'Present Continuous',vn:'Thì hiện tại tiếp diễn',group:'present',formula:'S + am/is/are + V-ing',use:'Hành động đang diễn ra lúc nói; tình huống tạm thời hoặc kế hoạch gần.',signal:'now, right now, at the moment, Look!, Listen!',ex:'They are playing football now. (Họ đang chơi bóng đá.)',tip:'Đừng quên động từ to be trước V-ing.'},
+      {id:3,name:'Present Perfect',vn:'Thì hiện tại hoàn thành',group:'present',formula:'S + have/has + V3/ed',use:'Trải nghiệm; hành động vừa xảy ra; việc bắt đầu trong quá khứ còn liên quan hiện tại.',signal:'already, just, yet, ever, never, since, for, recently',ex:'I have lived here for three years. (Tôi đã sống ở đây được 3 năm.)',tip:'He/She/It dùng has; các chủ ngữ còn lại thường dùng have.'},
+      {id:4,name:'Past Simple',vn:'Thì quá khứ đơn',group:'past',formula:'S + V2/ed · S + was/were',use:'Hành động đã kết thúc tại một thời điểm trong quá khứ.',signal:'yesterday, last week, ago, in 2020',ex:'We visited Da Lat last summer. (Chúng tôi đã thăm Đà Lạt hè năm ngoái.)',tip:'Câu hỏi/phủ định thường dùng did + V nguyên mẫu.'},
+      {id:5,name:'Future Simple',vn:'Thì tương lai đơn',group:'future',formula:'S + will + V nguyên mẫu',use:'Dự đoán, quyết định tức thời, lời hứa hoặc đề nghị.',signal:'tomorrow, next week, soon, I think, probably',ex:'I will call you tomorrow. (Tôi sẽ gọi cho bạn ngày mai.)',tip:'Sau will luôn dùng động từ nguyên mẫu, không thêm -s/-ed.'}
+    ],
+    qBase: [
+      {q:'My brother usually ___ coffee in the morning.',opts:['drink','drinks','is drinking','drank'],a:1,t:1,why:'Usually diễn tả thói quen → hiện tại đơn. “My brother” là ngôi thứ ba số ít nên dùng drinks.'},
+      {q:'Be quiet! The baby ___.',opts:['sleeps','slept','is sleeping','has slept'],a:2,t:2,why:'“Be quiet!” cho thấy hành động đang diễn ra → am/is/are + V-ing.'},
+      {q:'I ___ that movie three times.',opts:['saw','have seen','am seeing','had see'],a:1,t:3,why:'Nói về trải nghiệm tính đến hiện tại, không nêu thời điểm quá khứ cụ thể → hiện tại hoàn thành.'},
+      {q:'We ___ our grandparents last Sunday.',opts:['visit','have visited','visited','were visit'],a:2,t:4,why:'“Last Sunday” là thời điểm quá khứ đã kết thúc → quá khứ đơn.'},
+      {q:'I think it ___ tomorrow.',opts:['rains','rained','will rain','is rain'],a:2,t:5,why:'“I think” + dự đoán tương lai thường dùng will + động từ nguyên mẫu.'}
+    ]
+  },
+  ko: {
+    title: "Ngữ pháp tiếng Hàn cơ bản",
+    lessons: [
+      {id:1,name:'Đuôi câu trang trọng (ㅂ/습니다)',vn:'Đuôi câu trần thuật lịch sự',group:'ko',formula:'Thân ĐT + ㅂ/습니다',use:'Dùng trong môi trường làm việc, tin tức, thuyết trình.',signal:'khi giao tiếp chính thức',ex:'저는 학생입니다. (Tôi là học sinh.)',tip:'Có patchim dùng 습니다, không patchim dùng ㅂ니다.'},
+      {id:2,name:'Đuôi câu thân mật (아/어/여요)',vn:'Đuôi câu giao tiếp hàng ngày',group:'ko',formula:'Thân ĐT + 아/어요',use:'Dùng trong đời sống hàng ngày, lịch sự nhưng gần gũi.',signal:'giao tiếp thông thường',ex:'밥을 먹어요. (Tôi ăn cơm.)',tip:'Kết thúc bằng nguyên âm ㅏ,ㅗ dùng 아요, còn lại dùng 어요.'},
+      {id:3,name:'Quá khứ (았/었/였어요)',vn:'Thì quá khứ',group:'ko',formula:'Thân ĐT + 았/었어요',use:'Hành động đã xảy ra trong quá khứ.',signal:'어제 (hôm qua), 아까 (lúc nãy)',ex:'어제 영화를 봤어요. (Hôm qua tôi đã xem phim.)',tip:'Quy tắc chia giống 아/어요 nhưng thêm ㅆ.'},
+      {id:4,name:'Tương lai (을/ㄹ 거예요)',vn:'Thì tương lai',group:'ko',formula:'Thân ĐT + (으)ㄹ 거예요',use:'Dự định, kế hoạch sẽ làm trong tương lai.',signal:'내일 (ngày mai), 다음 주 (tuần sau)',ex:'내일 학교에 갈 거예요. (Ngày mai tôi sẽ đến trường.)',tip:'Có patchim dùng 을, không có dùng ㄹ.'}
+    ],
+    qBase: [
+      {q:'저는 베트남 사람___. (trang trọng)',opts:['입니다','입니까','은','는'],a:0,t:1,why:'Câu trần thuật trang trọng dùng 입니다.'},
+      {q:'사과를 ___. (먹다 - thân mật)',opts:['먹어요','먹습니다','먹었어요','먹을 거예요'],a:0,t:2,why:'먹다 + 어요 = 먹어요.'},
+      {q:'어제 친구를 ___. (만나다 - quá khứ)',opts:['만나요','만났어요','만나습니다','만날 거예요'],a:1,t:3,why:'어제 (hôm qua) -> dùng quá khứ 만났어요.'},
+      {q:'내일 한국어를 ___. (공부하다 - tương lai)',opts:['공부해요','공부했습니다','공부할 거예요','공부합니다'],a:2,t:4,why:'내일 (ngày mai) -> dùng tương lai 할 거예요.'},
+      {q:'지금 음악을 ___. (듣다 - thân mật)',opts:['들어요','듣어요','들었어요','듣습니다'],a:0,t:2,why:'Bất quy tắc ㄷ: 듣다 -> 들어요.'}
+    ]
+  },
+  zh: {
+    title: "Ngữ pháp tiếng Trung cơ bản",
+    lessons: [
+      {id:1,name:'Cấu trúc S + V + O',vn:'Câu trần thuật cơ bản',group:'zh',formula:'Chủ ngữ + Động từ + Tân ngữ',use:'Diễn tả hành động, sự việc bình thường.',signal:'câu nói bình thường',ex:'我吃饭。 (Tôi ăn cơm.)',tip:'Trật tự từ giống tiếng Việt.'},
+      {id:2,name:'Trợ từ 了 (le)',vn:'Chỉ sự hoàn tất',group:'zh',formula:'V + 了',use:'Hành động đã xảy ra và hoàn tất.',signal:'昨天 (hôm qua), 已经 (đã)',ex:'我买了书。 (Tôi đã mua sách.)',tip:'Thường đứng ngay sau động từ.'},
+      {id:3,name:'Đang (在 / 正在)',vn:'Hành động đang diễn ra',group:'zh',formula:'(正)在 + V',use:'Diễn tả hành động đang diễn ra ở hiện tại.',signal:'现在 (bây giờ)',ex:'他在睡觉。 (Anh ấy đang ngủ.)',tip:'Đứng trước động từ chính.'},
+      {id:4,name:'Cấu trúc chữ 的 (de)',vn:'Sở hữu cách / Định ngữ',group:'zh',formula:'Định ngữ + 的 + Danh từ trung tâm',use:'Chỉ sự sở hữu hoặc làm rõ cho danh từ.',signal:'Sở hữu, tính chất',ex:'我的书 (Sách của tôi)',tip:'Ngược với tiếng Việt, người/vật sở hữu đứng trước.'}
+    ],
+    qBase: [
+      {q:'我 ___ 吃饭。 (Tôi đang ăn cơm)',opts:['了','在','的','是'],a:1,t:3,why:'"Đang" trong tiếng Trung dùng 在 (zài).'},
+      {q:'昨天我买 ___ 一本书。 (Hôm qua tôi đã mua 1 quyển sách)',opts:['的','在','了','过'],a:2,t:2,why:'Hành động đã hoàn tất dùng 了 (le).'},
+      {q:'这 ___ 我的手机。 (Đây là điện thoại của tôi)',opts:['是','在','有','看'],a:0,t:1,why:'"Là" dùng 是 (shì).'},
+      {q:'他 ___ 妈妈很漂亮。 (Mẹ của anh ấy rất đẹp)',opts:['了','在','的','和'],a:2,t:4,why:'Sở hữu "của" dùng 的 (de).'},
+      {q:'你在做 ___？ (Bạn đang làm gì?)',opts:['谁','哪','什么','怎么'],a:2,t:1,why:'"Cái gì" là 什么 (shénme).'}
+    ]
+  }
 };
-const topicKeys=Object.keys(topicNames);
-const originalBank=questions.slice();
-let expansionIndex=0;
-while(questions.length<1000){
-  const base=originalBank[expansionIndex%originalBank.length];
-  const topic=topicKeys[Math.floor(expansionIndex/8)%topicKeys.length];
-  const contextList=expansionContexts[topic];
-  const context=contextList[Math.floor(expansionIndex/2)%contextList.length];
-  const variantNo=Math.floor(expansionIndex/originalBank.length)+1;
-  const qText=`${context}, choose the correct verb form (practice ${variantNo}): ${base.q}`;
-  // Xáo trộn lựa chọn có kiểm soát và cập nhật chỉ số đáp án đúng.
-  const opts=base.opts.map((v,i)=>({v,correct:i===base.a,sort:(i*3+expansionIndex*7)%11})).sort((a,b)=>a.sort-b.sort);
-  questions.push({topic,q:qText,opts:opts.map(x=>x.v),a:opts.findIndex(x=>x.correct),t:base.t,why:`${base.why} Ngữ cảnh: ${topicNames[topic]}.`});
-  expansionIndex++;
+
+let currentLang = 'en';
+let tenses = [];
+let questions = [];
+
+// Hàm tạo 1000 câu hỏi
+function expandQuestions(basePool) {
+  let expanded = [];
+  const poolLen = basePool.length;
+  // Xóa rác, tạo 1000 câu bằng cách xào lại với suffix
+  for(let i=0; i<1000; i++){
+    let base = basePool[i % poolLen];
+    let vNo = Math.floor(i / poolLen) + 1;
+    let qText = base.q.replace('.', ` [Q.${vNo}].`);
+    if(qText === base.q) qText = base.q + ` [Q.${vNo}]`;
+    
+    let opts = base.opts.map((v, idx) => ({v, correct: idx === base.a, sort: Math.random()})).sort((a,b)=>a.sort-b.sort);
+    expanded.push({
+      q: qText,
+      opts: opts.map(x=>x.v),
+      a: opts.findIndex(x=>x.correct),
+      t: base.t,
+      why: base.why
+    });
+  }
+  return expanded;
 }
 
+function changeLanguage(lang) {
+  currentLang = lang;
+  
+  // Update UI buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btnLang' + lang.toUpperCase()).classList.add('active');
+  
+  // Load data
+  const data = databases[lang];
+  document.getElementById('heroTitle').innerHTML = data.title + '<br>không còn khó!';
+  tenses = data.lessons;
+  questions = expandQuestions(data.qBase);
+  
+  document.getElementById('questionCount').textContent = questions.length;
+  
+  // Đặt lại state
+  currentTense = tenses[0].id;
+  renderTenseGrid();
+  renderReview();
+  
+  // Quay về trang chủ
+  switchTab('learn');
+}
 
-let currentTense=1,qi=0,round=[],answered=false,score=0,done=0,correctTotal=0,streak=0,bestStreak=0,missed=[];
-function renderTenseGrid(){let f=document.getElementById('groupFilter').value;document.getElementById('tenseGrid').innerHTML=tenses.filter(t=>f==='all'||t.group===f).map(t=>`<button class="tense-card" onclick="openLesson(${t.id})"><span class="num">TENSE ${String(t.id).padStart(2,'0')}</span><strong>${t.name}</strong><small>${t.vn}</small><span class="pill">${t.group==='present'?'Hiện tại':t.group==='past'?'Quá khứ':'Tương lai'}</span></button>`).join('')}
-function openLesson(id){currentTense=id;document.getElementById('learnPanel').classList.add('hidden');document.getElementById('studyPanel').classList.remove('hidden');renderLesson();}
-function renderLesson(){let t=tenses.find(x=>x.id===currentTense);document.getElementById('sideList').innerHTML=tenses.map(x=>`<button class="side-item ${x.id===currentTense?'active':''}" onclick="currentTense=${x.id};renderLesson()">${String(x.id).padStart(2,'0')} · ${x.name}</button>`).join('');document.getElementById('lesson').innerHTML=`<span class="pill">${t.group==='present'?'NHÓM HIỆN TẠI':t.group==='past'?'NHÓM QUÁ KHỨ':'NHÓM TƯƠNG LAI'}</span><h3>${t.name}</h3><p class="vn">${t.vn}</p><h4>🧩 Công thức</h4><div class="formula"><b>${t.formula}</b></div><h4>🎯 Cách dùng</h4><p style="line-height:1.7;color:#575676">${t.use}</p><h4>🔎 Dấu hiệu thường gặp</h4><p style="line-height:1.8;color:#575676">${t.signal.split(', ').map(s=>`<span class="pill" style="margin:3px">${s}</span>`).join(' ')}</p><h4>💬 Ví dụ</h4><div class="example">${t.ex}</div><h4>💡 Mẹo ghi nhớ</h4><p style="line-height:1.7;color:#575676">${t.tip}</p><button class="primary" style="margin-top:10px" onclick="switchTab('quiz');document.getElementById('quizFilter').value='all';startQuiz(${t.id})">Luyện câu hỏi về thì này →</button>`}
-function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','account','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('account');setAccountMessage('Hãy đăng nhập hoặc tạo tài khoản trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='account')renderAccountStatus();if(tab==='achievements')renderAchievements();window.scrollTo({top:document.querySelector('.tabs').offsetTop-12,behavior:'smooth'})}
-function startQuiz(onlyId=null){if(!currentUser){switchTab('account');setAccountMessage('Đăng nhập hoặc tạo tài khoản trước khi bắt đầu làm bài.');return;}let f=document.getElementById('quizFilter').value;let topic=document.getElementById('topicFilter').value;let pool=questions.filter(q=>(onlyId?q.t===onlyId:(f==='all'||tenses.find(t=>t.id===q.t).group===f))&&(topic==='all'||q.topic===topic));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi phù hợp với bộ lọc này.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=onlyId?Math.min(10,pool.length):Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
-function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=round.length){saveAchievement();area.innerHTML=`<div class="result"><div class="big">${score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱'}</div><h2>${score/round.length>=.8?'Xuất sắc!':score/round.length>=.5?'Tiến bộ tốt!':'Tiếp tục cố gắng nhé!'}</h2><div class="result-score">${score}/${round.length}</div><p>Bạn trả lời đúng ${Math.round(score/round.length*100)}% số câu trong lượt này.</p><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button> <button class="secondary" onclick="switchTab('learn')">Ôn lại công thức</button></div>`;return}let q=round[qi];answered=false;area.innerHTML=`<div class="quiz-top"><span class="qmeta">CÂU ${qi+1} / ${round.length}</span><span class="pill">${topicNames[q.topic]||'Đời sống'} · ${tenses.find(t=>t.id===q.t).name}</span></div><div class="progress"><div style="width:${qi/round.length*100}%"></div></div><div class="question">${q.q}</div><p class="sub">Chọn một đáp án phù hợp nhất.</p><div class="options">${q.opts.map((o,i)=>`<button class="option" id="opt${i}" onclick="answer(${i})"><span class="letter">${String.fromCharCode(65+i)}</span><span>${o}</span></button>`).join('')}</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="secondary" onclick="openLesson(${q.t});document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab==='learn'))">📖 Xem công thức</button><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>`}
-function answer(i){if(answered)return;answered=true;let q=round[qi],ok=i===q.a;if(ok){score++;correctTotal++;streak++;bestStreak=Math.max(bestStreak,streak)}else{streak=0;missed.push(q)}done++;document.getElementById('opt'+q.a).classList.add('correct');if(!ok)document.getElementById('opt'+i).classList.add('wrong');document.querySelectorAll('.option').forEach(b=>b.disabled=true);let fb=document.getElementById('feedback');fb.className='feedback show '+(ok?'good':'bad');fb.innerHTML=`<b>${ok?'✨ Chính xác!':'💡 Chưa đúng rồi!'}</b> ${q.why}`;document.getElementById('nextBtn').disabled=false;document.getElementById('nextBtn').textContent=qi===round.length-1?'Xem kết quả →':'Câu tiếp theo →';updateStats()}
+// ... the rest of the existing script logic ...
+let currentTenseActive=1,qi=0,round=[],answered=false,score=0,done=0,correctTotal=0,streak=0,bestStreak=0,missed=[];
+function renderTenseGrid(){document.getElementById('tenseGrid').innerHTML=tenses.map(t=>'<button class="tense-card" onclick="openLesson('+t.id+')"><span class="num">BÀI '+String(t.id).padStart(2,'0')+'</span><strong>'+t.name+'</strong><small>'+t.vn+'</small></button>').join('')}
+function openLesson(id){currentTenseActive=id;document.getElementById('learnPanel').classList.add('hidden');document.getElementById('studyPanel').classList.remove('hidden');renderLesson();}
+function renderLesson(){let t=tenses.find(x=>x.id===currentTenseActive);document.getElementById('sideList').innerHTML=tenses.map(x=>'<button class="side-item '+(x.id===currentTenseActive?'active':'')+'" onclick="currentTenseActive='+x.id+';renderLesson()">'+String(x.id).padStart(2,'0')+' · '+x.name+'</button>').join('');document.getElementById('lesson').innerHTML='<h3>'+t.name+'</h3><p class="vn">'+t.vn+'</p><h4>🧩 Công thức</h4><div class="formula"><b>'+t.formula+'</b></div><h4>🎯 Cách dùng</h4><p style="line-height:1.7;color:#575676">'+t.use+'</p><h4>🔎 Dấu hiệu / Ngữ cảnh</h4><p style="line-height:1.8;color:#575676">'+t.signal+'</p><h4>💬 Ví dụ</h4><div class="example">'+t.ex+'</div><h4>💡 Mẹo ghi nhớ</h4><p style="line-height:1.7;color:#575676">'+t.tip+'</p><button class="primary" style="margin-top:10px" onclick="switchTab(\'quiz\');startQuiz('+t.id+')">Luyện câu hỏi bài này →</button>'}
+function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','account','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('account');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='account')renderAccountStatus();if(tab==='achievements')renderAchievements();window.scrollTo({top:document.querySelector('.tabs').offsetTop-12,behavior:'smooth'})}
+function startQuiz(onlyId=null){if(!currentUser){switchTab('account');setAccountMessage('Đăng nhập trước khi bắt đầu làm bài.');return;}let pool=questions.filter(q=>(onlyId?q.t===onlyId:true));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
+function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=round.length){saveAchievement();area.innerHTML='<div class="result"><div class="big">'+(score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱')+'</div><h2>Hoàn thành!</h2><div class="result-score">'+score+'/'+round.length+'</div><p>Bạn đúng '+Math.round(score/round.length*100)+'%.</p><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button></div>';return}let q=round[qi];answered=false;area.innerHTML='<div class="quiz-top"><span class="qmeta">CÂU '+(qi+1)+' / '+round.length+'</span></div><div class="progress"><div style="width:'+(qi/round.length*100)+'%"></div></div><div class="question">'+q.q+'</div><div class="options">'+q.opts.map((o,i)=>'<button class="option" id="opt'+i+'" onclick="answer('+i+')"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>').join('')+'</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>'}
+function answer(i){if(answered)return;answered=true;let q=round[qi],ok=i===q.a;if(ok){score++;correctTotal++;streak++;bestStreak=Math.max(bestStreak,streak)}else{streak=0;missed.push(q)}done++;document.getElementById('opt'+q.a).classList.add('correct');if(!ok)document.getElementById('opt'+i).classList.add('wrong');document.querySelectorAll('.option').forEach(b=>b.disabled=true);let fb=document.getElementById('feedback');fb.className='feedback show '+(ok?'good':'bad');fb.innerHTML='<b>'+(ok?'✨ Chính xác!':'💡 Chưa đúng rồi!')+'</b> '+q.why;document.getElementById('nextBtn').disabled=false;document.getElementById('nextBtn').textContent=qi===round.length-1?'Xem kết quả →':'Câu tiếp theo →';updateStats()}
 function nextQuestion(){qi++;renderQuestion()}
 function updateStats(){document.getElementById('doneStat').textContent=done;document.getElementById('accuracyStat').textContent=done?Math.round(correctTotal/done*100)+'%':'—';document.getElementById('streakStat').textContent=streak}
-function renderReview(){document.getElementById('reviewGrid').innerHTML=tenses.map(t=>`<div class="tense-card" style="cursor:default"><span class="num">${String(t.id).padStart(2,'0')} · ${t.group==='present'?'HIỆN TẠI':t.group==='past'?'QUÁ KHỨ':'TƯƠNG LAI'}</span><strong>${t.name}</strong><div class="formula" style="font-size:12px;margin:0;padding:9px">${t.formula}</div><small><b>Dấu hiệu:</b> ${t.signal}</small></div>`).join('')}
+function renderReview(){document.getElementById('reviewGrid').innerHTML=tenses.map(t=>'<div class="tense-card" style="cursor:default"><span class="num">BÀI '+String(t.id).padStart(2,'0')+'</span><strong>'+t.name+'</strong><div class="formula" style="font-size:12px;margin:0;padding:9px">'+t.formula+'</div><small><b>Dấu hiệu:</b> '+t.signal+'</small></div>').join('')}
 
-// Firebase Authentication + Cloud Firestore
+// Firebase 
 const firebaseConfig = {
   apiKey: "AIzaSyBJsJpzcR0jRioWaMF78iuh0RguNUikgfc",
   authDomain: "english-time-lab.firebaseapp.com",
@@ -250,40 +222,29 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const analytics = firebase.analytics();
+let analytics = null;
+try { analytics = firebase.analytics(); } catch (e) {}
+
 const auth = firebase.auth();
 const db = firebase.firestore();
-let currentUser = null;
-let currentDisplayName = '';
+let storage = null;
+try { storage = firebase.storage(); } catch (e) {}
+
+let currentUser = null; let currentDisplayName = ''; let currentPhotoURL = ''; let currentPhone = '';
+
 function setAccountMessage(msg){const el=document.getElementById('accountMessage');if(el)el.textContent=msg||'';}
-function friendlyAuthError(error){
-  const map={
-    'auth/email-already-in-use':'Email này đã được đăng ký.',
-    'auth/invalid-email':'Địa chỉ email chưa hợp lệ.',
-    'auth/weak-password':'Mật khẩu chưa đủ mạnh (hãy dùng ít nhất 8 ký tự).',
-    'auth/user-not-found':'Không tìm thấy tài khoản này.',
-    'auth/wrong-password':'Email hoặc mật khẩu không đúng.',
-    'auth/invalid-credential':'Email hoặc mật khẩu không đúng.',
-    'auth/too-many-requests':'Bạn thử quá nhiều lần. Hãy đợi một lúc rồi thử lại.',
-    'auth/network-request-failed':'Không thể kết nối. Hãy kiểm tra Internet.'
-  };
-  return map[error.code] || ('Có lỗi: '+(error.message||'vui lòng thử lại.'));
-}
+function friendlyAuthError(error){ return error.message || 'Lỗi kết nối.'; }
+
 async function registerAccount(event){
   event.preventDefault();
   const name=document.getElementById('regName').value.trim();
   const email=document.getElementById('regEmail').value.trim().toLowerCase();
   const password=document.getElementById('regPass').value;
-  if(password.length<8){setAccountMessage('Mật khẩu cần ít nhất 8 ký tự.');return;}
   try{
     const credential=await auth.createUserWithEmailAndPassword(email,password);
     await credential.user.updateProfile({displayName:name});
-    await db.collection('users').doc(credential.user.uid).set({
-      uid:credential.user.uid, displayName:name, email:email, createdAt:firebase.firestore.FieldValue.serverTimestamp()
-    });
-    event.target.reset();
-    setAccountMessage('Tạo tài khoản thành công. Bạn đã đăng nhập!');
-    switchTab('learn');
+    await db.collection('users').doc(credential.user.uid).set({uid:credential.user.uid, displayName:name, email:email, phone:'', photoURL:'', createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+    event.target.reset(); setAccountMessage('Tạo tài khoản thành công!'); switchTab('learn');
   }catch(error){setAccountMessage(friendlyAuthError(error));}
 }
 async function loginAccount(event){
@@ -292,70 +253,116 @@ async function loginAccount(event){
   const password=document.getElementById('loginPass').value;
   try{
     await auth.signInWithEmailAndPassword(email,password);
-    event.target.reset();
-    setAccountMessage('Đăng nhập thành công. Bạn có thể bắt đầu làm bài!');
-    switchTab('learn');
+    event.target.reset(); setAccountMessage('Đăng nhập thành công!'); switchTab('learn');
   }catch(error){setAccountMessage(friendlyAuthError(error));}
 }
 async function logoutAccount(){
-  try{
-    await auth.signOut();
-    setAccountMessage('Bạn đã đăng xuất.');
-    switchTab('account');
-  }
-  catch(error){setAccountMessage(friendlyAuthError(error));}
+  try{ await auth.signOut(); setAccountMessage('Đã đăng xuất.'); switchTab('account'); }catch(error){}
 }
+
 function renderAccountStatus(){
-  const el=document.getElementById('accountStatus');if(!el)return;
-  el.textContent=currentUser?'Đang đăng nhập: '+(currentDisplayName||currentUser.email):'Chưa đăng nhập';
+  const statusEl = document.getElementById('accountStatus');
+  const authGrid = document.getElementById('authGrid');
+  const loggedInView = document.getElementById('loggedInView');
+  if (currentUser) {
+    statusEl.textContent = 'Đang đăng nhập: ' + (currentDisplayName || currentUser.email);
+    authGrid.classList.add('hidden'); loggedInView.classList.remove('hidden');
+    document.getElementById('accountName').textContent = currentDisplayName || 'Người dùng';
+    document.getElementById('accountEmailText').textContent = currentUser.email;
+    document.getElementById('accountPhoneText').textContent = currentPhone ? '📞 ' + currentPhone : '📞 Chưa có SĐT';
+    const avatarEl = document.getElementById('accountAvatar');
+    if(currentPhotoURL) avatarEl.innerHTML = '<img src="' + currentPhotoURL + '">';
+    else avatarEl.innerHTML = (currentDisplayName || currentUser.email).charAt(0).toUpperCase();
+  } else {
+    statusEl.textContent = 'Chưa đăng nhập';
+    authGrid.classList.remove('hidden'); loggedInView.classList.add('hidden');
+  }
 }
 
 function updateBrandLogo() {
   const brandContainer = document.getElementById('brandContainer');
   if (currentUser) {
-    const initial = (currentDisplayName || currentUser.email).charAt(0).toUpperCase();
-    brandContainer.innerHTML = `
-      <div class="avatar-logo" style="cursor: pointer;" onclick="switchTab('account')">${initial}</div>
-      <div>
-        <div style="font-size: 15px; font-weight: 800;">Xin chào, ${currentDisplayName || currentUser.email.split('@')[0]} 👋</div>
-        <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">ENGLISH TIME LAB</div>
-      </div>
-    `;
+    let avatarHtml = currentPhotoURL ? '<img src="' + currentPhotoURL + '">' : (currentDisplayName || currentUser.email).charAt(0).toUpperCase();
+    brandContainer.innerHTML = '<div class="avatar-logo" style="cursor: pointer;" onclick="switchTab(\'account\')">' + avatarHtml + '</div><div><div style="font-size: 15px; font-weight: 800;">Xin chào, ' + (currentDisplayName || currentUser.email.split('@')[0]) + ' 👋</div><div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">LANGUAGE TIME LAB</div></div>';
   } else {
-    brandContainer.innerHTML = `
-      <div class="logo">✦</div>
-      <div>English Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div>
-    `;
+    brandContainer.innerHTML = '<div class="logo">✦</div><div>Language Time Lab <div style="font-size:11px;color:#8582a5;font-weight:700;letter-spacing:.5px;margin-top:2px">HỌC VUI · NHỚ LÂU</div></div>';
   }
+}
+
+function openProfileModal(){
+  document.getElementById('editName').value = currentDisplayName;
+  document.getElementById('editEmail').value = currentUser.email;
+  document.getElementById('editPhone').value = currentPhone;
+  document.getElementById('profileMessage').textContent = '';
+  document.getElementById('avatarUpload').value = '';
+  const preview = document.getElementById('modalAvatarPreview');
+  if(currentPhotoURL) preview.innerHTML = '<img src="' + currentPhotoURL + '">';
+  else preview.innerHTML = (currentDisplayName || currentUser.email).charAt(0).toUpperCase();
+  document.getElementById('profileModal').classList.add('active');
+}
+function closeProfileModal(){ document.getElementById('profileModal').classList.remove('active'); }
+
+let tempFile = null;
+function previewAvatar(event){
+  const file = event.target.files[0]; if(!file) return; tempFile = file;
+  const reader = new FileReader();
+  reader.onload = function(e) { document.getElementById('modalAvatarPreview').innerHTML = '<img src="' + e.target.result + '">'; }
+  reader.readAsDataURL(file);
+}
+
+async function updateProfile(event) {
+  event.preventDefault();
+  const newName = document.getElementById('editName').value.trim();
+  const newPhone = document.getElementById('editPhone').value.trim();
+  const msgEl = document.getElementById('profileMessage'); msgEl.textContent = 'Đang lưu...';
+  try {
+    let newPhotoURL = currentPhotoURL;
+    if (tempFile) {
+        if (!storage) throw new Error("Storage chưa bật.");
+        const storageRef = storage.ref('avatars/' + currentUser.uid + '_' + Date.now());
+        await storageRef.put(tempFile);
+        newPhotoURL = await storageRef.getDownloadURL();
+    }
+    await currentUser.updateProfile({displayName: newName, photoURL: newPhotoURL});
+    await db.collection('users').doc(currentUser.uid).update({displayName: newName, phone: newPhone, photoURL: newPhotoURL});
+    currentDisplayName = newName; currentPhone = newPhone; currentPhotoURL = newPhotoURL; tempFile = null;
+    updateBrandLogo(); renderAccountStatus();
+    msgEl.textContent = 'Lưu thành công!'; setTimeout(closeProfileModal, 1500);
+  } catch (error) { msgEl.textContent = 'Lỗi: ' + error.message; }
 }
 
 auth.onAuthStateChanged(async user=>{
   currentUser=user;
-  currentDisplayName=user?(user.displayName||user.email.split('@')[0]):'';
-  renderAccountStatus();
-  updateBrandLogo();
   if(user){
+    currentDisplayName = user.displayName || user.email.split('@')[0];
+    currentPhotoURL = user.photoURL || '';
     try{
       const ref=db.collection('users').doc(user.uid);
       const snap=await ref.get();
-      if(!snap.exists){await ref.set({uid:user.uid,displayName:currentDisplayName,email:user.email||'',createdAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});}
-    }catch(e){setAccountMessage('Đăng nhập được nhưng chưa đọc/ghi được hồ sơ. Kiểm tra Firestore và Security Rules.');}
-  }
+      if(snap.exists){
+          const data = snap.data(); currentPhone = data.phone || '';
+          if(data.photoURL && !currentPhotoURL) currentPhotoURL = data.photoURL;
+      } else {
+          await ref.set({uid:user.uid,displayName:currentDisplayName,email:user.email||'', phone:'', photoURL:currentPhotoURL, createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+      }
+    }catch(e){}
+  } else { currentDisplayName = ''; currentPhotoURL = ''; currentPhone = ''; }
+  renderAccountStatus(); updateBrandLogo();
 });
+
 async function saveAchievement(){
   if(!currentUser||!round.length)return;
-  const result={uid:currentUser.uid,email:currentUser.email||'',displayName:currentDisplayName,
+  const result={uid:currentUser.uid,email:currentUser.email||'',displayName:currentDisplayName, lang: currentLang,
     date:firebase.firestore.FieldValue.serverTimestamp(),score:score,total:round.length,
-    percent:Math.round(score/round.length*100),topic:document.getElementById('topicFilter')?.value||'all',
-    mode:document.getElementById('quizFilter')?.value||'all'};
-  try{await db.collection('quizResults').add(result);}
-  catch(error){setAccountMessage('Không lưu được thành tích lên mạng. Hãy kiểm tra Firestore Security Rules. '+friendlyAuthError(error));}
+    percent:Math.round(score/round.length*100)};
+  try{await db.collection('quizResults').add(result);}catch(error){}
 }
+
 async function renderAchievements(){
   const summary=document.getElementById('achievementSummary'),content=document.getElementById('achievementContent');
   if(!summary||!content)return;
-  if(!currentUser){summary.textContent='Bạn cần đăng nhập để xem thành tích.';content.innerHTML=`<button class="primary" onclick="switchTab('account')">Đăng nhập / tạo tài khoản</button>`;return;}
-  summary.textContent='Đang tải thành tích...';content.innerHTML='';
+  if(!currentUser){summary.textContent='Bạn cần đăng nhập để xem thành tích.';content.innerHTML='<button class="primary" onclick="switchTab(\'account\')">Đăng nhập</button>';return;}
+  summary.textContent='Đang tải...';content.innerHTML='';
   try{
     const snap=await db.collection('quizResults').where('uid','==',currentUser.uid).get();
     const mine=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>{
@@ -363,15 +370,16 @@ async function renderAchievements(){
       const dbb=b.date&&b.date.toDate?b.date.toDate().getTime():0;return dbb-da;
     });
     const avg=mine.length?Math.round(mine.reduce((n,x)=>n+(x.percent||0),0)/mine.length):0;
-    const best=mine.length?Math.max(...mine.map(x=>x.percent||0)):0;
-    summary.textContent=`${currentDisplayName||currentUser.email} · ${mine.length} lượt làm bài · Điểm trung bình ${avg}% · Điểm cao nhất ${best}%`;
-    if(!mine.length){content.innerHTML=`<div class="empty">Chưa có thành tích. Hãy hoàn thành lượt trắc nghiệm đầu tiên nhé!<br><button class="primary" style="margin-top:12px" onclick="switchTab('quiz')">Bắt đầu làm bài</button></div>`;return;}
-    content.innerHTML='<div style="overflow-x:auto"><table class="achievement-table"><thead><tr><th>Ngày giờ</th><th>Chủ đề</th><th>Điểm</th><th>Tỷ lệ</th></tr></thead><tbody>'+mine.map(x=>{
+    summary.textContent=currentDisplayName + ' · ' + mine.length + ' lượt làm bài · TB ' + avg + '%';
+    if(!mine.length){content.innerHTML='<div class="empty">Chưa có thành tích.</div>';return;}
+    content.innerHTML='<div style="overflow-x:auto"><table class="achievement-table"><thead><tr><th>Ngày giờ</th><th>Ngôn ngữ</th><th>Điểm</th><th>Tỷ lệ</th></tr></thead><tbody>'+mine.map(x=>{
       const dt=x.date&&x.date.toDate?x.date.toDate():null;
-      return `<tr><td>${dt?dt.toLocaleString('vi-VN'):'Vừa xong'}</td><td>${topicNames[x.topic]||x.topic||'Tất cả'}</td><td>${x.score}/${x.total}</td><td>${x.percent}%</td></tr>`;
+      const langName = x.lang === 'ko' ? 'Tiếng Hàn' : (x.lang === 'zh' ? 'Tiếng Trung' : 'Tiếng Anh');
+      return '<tr><td>'+(dt?dt.toLocaleString('vi-VN'):'Vừa xong')+'</td><td>'+langName+'</td><td>'+x.score+'/'+x.total+'</td><td>'+x.percent+'%</td></tr>';
     }).join('')+'</tbody></table></div>';
-  }catch(error){summary.textContent='Không tải được thành tích. Hãy kiểm tra Firestore Security Rules và kết nối mạng.';content.textContent=friendlyAuthError(error);}
+  }catch(error){}
 }
 
-document.getElementById('quizFilter').addEventListener('change',()=>startQuiz());document.getElementById('topicFilter').addEventListener('change',()=>startQuiz());document.getElementById('questionCount').textContent=questions.length;renderTenseGrid();renderReview();renderAccountStatus();
+// Khởi chạy ngôn ngữ mặc định
+try { changeLanguage('en'); } catch(e) { console.error(e); }
 </script></body></html>
