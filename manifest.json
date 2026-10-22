@@ -1,0 +1,20 @@
+{
+  "name": "Language Time Lab",
+  "short_name": "LangLab",
+  "start_url": "./Language_Time_Lab_V18_Ultimate.html",
+  "display": "standalone",
+  "background_color": "#f6f5ff",
+  "theme_color": "#6c63ff",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Circle-icons-rocket.svg/192px-Circle-icons-rocket.svg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Circle-icons-rocket.svg/512px-Circle-icons-rocket.svg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
