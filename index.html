@@ -311,10 +311,23 @@ function startTimer() {
     clearInterval(quizTimer);
     timeLeft = 15;
     const bar = document.getElementById('timerBar');
-    if(bar) bar.style.width = '100%';
+    if(bar) {
+        bar.style.width = '100%';
+        bar.style.background = '#45d6b0'; // Green initial
+    }
     quizTimer = setInterval(() => {
         timeLeft -= 0.1;
-        if(bar) bar.style.width = (timeLeft / 15 * 100) + '%';
+        if(bar) {
+            let pct = (timeLeft / 15) * 100;
+            bar.style.width = pct + '%';
+            if(pct <= 30) {
+                bar.style.background = '#ff4757'; // Red
+            } else if(pct <= 60) {
+                bar.style.background = '#ffd166'; // Yellow
+            } else {
+                bar.style.background = '#45d6b0'; // Green
+            }
+        }
         if(timeLeft <= 0) {
             clearInterval(quizTimer);
             answer(-1); // Timeout
@@ -462,7 +475,7 @@ function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=ro
     if(score === round.length && score > 0 && typeof confetti !== 'undefined') {
         confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     }
-    area.innerHTML='<div class="result"><div class="big">'+(score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱')+'</div><h2>Hoàn thành!</h2><div class="result-score">'+score+'/'+round.length+'</div><p>Bạn đúng '+Math.round(score/round.length*100)+'%.</p><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button></div>';return}let q=round[qi];answered=false; startTimer(); area.innerHTML='<div class="quiz-top"><span class="qmeta">CÂU '+(qi+1)+' / '+round.length+'</span></div><div class="progress"><div style="width:'+(qi/round.length*100)+'%"></div></div><div class="timer-container"><div id="timerBar" class="timer-bar"></div></div><div class="question">'+q.q+'</div><div class="options">'+q.opts.map((o,i)=>'<button class="option" id="opt'+i+'" onclick="answer('+i+')"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>').join('')+'</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>'}
+    area.innerHTML='<div class="result"><div class="big">'+(score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱')+'</div><h2>Hoàn thành!</h2><div class="result-score">'+score+'/'+round.length+'</div><p>Bạn đúng '+Math.round(score/round.length*100)+'%.</p><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button></div>';return}let q=round[qi];answered=false; area.innerHTML='<div class="quiz-top"><span class="qmeta">CÂU '+(qi+1)+' / '+round.length+'</span></div><div class="progress"><div style="width:'+(qi/round.length*100)+'%"></div></div><div class="timer-container"><div id="timerBar" class="timer-bar"></div></div><div class="question">'+q.q+'</div><div class="options">'+q.opts.map((o,i)=>'<button class="option" id="opt'+i+'" onclick="answer('+i+')"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>').join('')+'</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>'; setTimeout(() => startTimer(), 50); }
 
 function answer(i){
     if(answered) return;
