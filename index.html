@@ -84,6 +84,11 @@ body.dark-mode .dropdown-lang-opts { background: #1a1a1a; }
 .dropdown-lang-btn:hover { background: #eeecff; color: var(--purple); }
 body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
 .dropdown-lang-btn.active { background: var(--purple); color: white; }
+
+.full-loader { position: fixed; top:0; left:0; right:0; bottom:0; background:var(--bg); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; opacity:1; transition: opacity 0.3s; }
+.full-loader.hide { opacity: 0; pointer-events:none; }
+.spinner { width: 50px; height: 50px; border: 5px solid #e1defe; border-top-color: var(--purple); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom:15px; }
+@keyframes spin { to { transform: rotate(360deg); } }
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -94,7 +99,7 @@ body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body><div class="app">
+<body><div class="full-loader" id="pageLoader"><div class="spinner"></div><h3 style="color:var(--purple); margin:0;">Đang chuẩn bị dữ liệu...</h3></div><div class="app">
 
 <header class="top" style="flex-wrap: wrap; position: relative; z-index: 1000;">
   <div class="brand" id="brandContainer" style="cursor: pointer;" onclick="switchTab('learn')">
@@ -309,7 +314,9 @@ let quizTimer = null;
 let timeLeft = 15;
 function startTimer() {
     clearInterval(quizTimer);
-    timeLeft = 15;
+    let level = Math.floor(Math.sqrt(userExp / 50)) + 1;
+    let maxTime = level >= 3 ? 10 : 15; // Harder if level >= 3
+    timeLeft = maxTime;
     const bar = document.getElementById('timerBar');
     if(bar) {
         bar.style.width = '100%';
@@ -318,7 +325,7 @@ function startTimer() {
     quizTimer = setInterval(() => {
         timeLeft -= 0.1;
         if(bar) {
-            let pct = (timeLeft / 15) * 100;
+            let pct = (timeLeft / maxTime) * 100;
             bar.style.width = pct + '%';
             if(pct <= 30) {
                 bar.style.background = '#ff4757'; // Red
@@ -440,7 +447,11 @@ function expandQuestions(basePool) {
 }
 
 function changeLanguage(lang) {
-  currentLang = lang;
+  const loader = document.getElementById('pageLoader');
+  if(loader) { loader.classList.remove('hide'); }
+  
+  setTimeout(() => {
+      currentLang = lang;
   
   // Update UI buttons
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -461,6 +472,8 @@ function changeLanguage(lang) {
   
   // Quay về trang chủ
   switchTab('learn');
+      if(loader) { loader.classList.add('hide'); }
+  }, 400); // Giả lập độ trễ tải dữ liệu để hiện mượt skeleton
 }
 
 // ... the rest of the existing script logic ...
@@ -468,14 +481,36 @@ let currentTenseActive=1,qi=0,round=[],answered=false,score=0,done=0,correctTota
 function renderTenseGrid(){document.getElementById('tenseGrid').innerHTML=tenses.map(t=>'<button class="tense-card" onclick="openLesson('+t.id+')"><span class="num">BÀI '+String(t.id).padStart(2,'0')+'</span><strong>'+t.name+'</strong><small>'+t.vn+'</small></button>').join('')}
 function openLesson(id){currentTenseActive=id;document.getElementById('learnPanel').classList.add('hidden');document.getElementById('studyPanel').classList.remove('hidden');renderLesson();}
 function renderLesson(){let t=tenses.find(x=>x.id===currentTenseActive);document.getElementById('sideList').innerHTML=tenses.map(x=>'<button class="side-item '+(x.id===currentTenseActive?'active':'')+'" onclick="currentTenseActive='+x.id+';renderLesson()">'+String(x.id).padStart(2,'0')+' · '+x.name+'</button>').join('');document.getElementById('lesson').innerHTML='<h3>'+t.name+'</h3><p class="vn">'+t.vn+'</p><h4>🧩 Công thức</h4><div class="formula"><b>'+t.formula+'</b></div><h4>🎯 Cách dùng</h4><p style="line-height:1.7;color:#575676">'+t.use+'</p><h4>🔎 Dấu hiệu / Ngữ cảnh</h4><p style="line-height:1.8;color:#575676">'+t.signal+'</p><h4>💬 Ví dụ</h4><div class="example">'+t.ex+'</div><h4>💡 Mẹo ghi nhớ</h4><p style="line-height:1.7;color:#575676">'+t.tip+'</p><button class="primary" style="margin-top:10px" onclick="switchTab(\'quiz\');startQuiz('+t.id+')">Luyện câu hỏi bài này →</button>'}
-function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','settings','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('settings');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='settings')renderAccountStatus();if(tab==='achievements')renderAchievements();const tabsEl=document.querySelector('.tabs'); if(tabsEl) window.scrollTo({top:tabsEl.offsetTop-12,behavior:'smooth'});}
+
+let uiAudioCtx = null;
+function playUIClick() {
+  try {
+      if(!uiAudioCtx) uiAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if(uiAudioCtx.state === 'suspended') uiAudioCtx.resume();
+      const osc = uiAudioCtx.createOscillator();
+      const gainNode = uiAudioCtx.createGain();
+      osc.connect(gainNode);
+      gainNode.connect(uiAudioCtx.destination);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, uiAudioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(300, uiAudioCtx.currentTime + 0.05);
+      gainNode.gain.setValueAtTime(0.1, uiAudioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, uiAudioCtx.currentTime + 0.05);
+      osc.start(); osc.stop(uiAudioCtx.currentTime + 0.05);
+  } catch(e){}
+}
+
+function switchTab(tab){ playUIClick(); document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','settings','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('settings');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='settings')renderAccountStatus();if(tab==='achievements')renderAchievements();const tabsEl=document.querySelector('.tabs'); if(tabsEl) window.scrollTo({top:tabsEl.offsetTop-12,behavior:'smooth'});}
 function startQuiz(onlyId=null){if(!currentUser){switchTab('settings');setAccountMessage('Đăng nhập trước khi bắt đầu làm bài.');return;}let pool=questions.filter(q=>(onlyId?q.t===onlyId:true));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
 function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=round.length){
     saveAchievement();
     if(score === round.length && score > 0 && typeof confetti !== 'undefined') {
         confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     }
-    area.innerHTML='<div class="result"><div class="big">'+(score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱')+'</div><h2>Hoàn thành!</h2><div class="result-score">'+score+'/'+round.length+'</div><p>Bạn đúng '+Math.round(score/round.length*100)+'%.</p><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button></div>';return}let q=round[qi];answered=false; area.innerHTML='<div class="quiz-top"><span class="qmeta">CÂU '+(qi+1)+' / '+round.length+'</span></div><div class="progress"><div style="width:'+(qi/round.length*100)+'%"></div></div><div class="timer-container"><div id="timerBar" class="timer-bar"></div></div><div class="question">'+q.q+'</div><div class="options">'+q.opts.map((o,i)=>'<button class="option" id="opt'+i+'" onclick="answer('+i+')"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>').join('')+'</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>'; setTimeout(() => startTimer(), 50); }
+    
+    let retryBtn = missed.length > 0 ? `<button class="secondary" style="margin-left:8px" onclick="retryMissed()">🎯 Luyện lại câu sai (${missed.length})</button>` : '';
+    area.innerHTML='<div class="result"><div class="big">'+(score/round.length>=.8?'🏆':score/round.length>=.5?'🎉':'🌱')+'</div><h2>Hoàn thành!</h2><div class="result-score">'+score+'/'+round.length+'</div><p>Bạn đúng '+Math.round(score/round.length*100)+'%.</p><div style="margin-top:15px"><button class="primary" onclick="startQuiz()">🔄 Làm lượt mới</button>' + retryBtn + '</div></div>';
+    return}let q=round[qi];answered=false; area.innerHTML='<div class="quiz-top"><span class="qmeta">CÂU '+(qi+1)+' / '+round.length+'</span></div><div class="progress"><div style="width:'+(qi/round.length*100)+'%"></div></div><div class="timer-container"><div id="timerBar" class="timer-bar"></div></div><div class="question">'+q.q+'</div><div class="options">'+q.opts.map((o,i)=>'<button class="option" id="opt'+i+'" onclick="answer('+i+')"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>').join('')+'</div><div id="feedback" class="feedback"></div><div class="quiz-actions"><button class="primary" id="nextBtn" disabled onclick="nextQuestion()">Câu tiếp theo →</button></div>'; setTimeout(() => startTimer(), 50); }
 
 function answer(i){
     if(answered) return;
@@ -507,6 +542,18 @@ function answer(i){
     document.getElementById('nextBtn').disabled = false;
     document.getElementById('nextBtn').textContent = qi === round.length - 1 ? 'Xem kết quả →' : 'Câu tiếp theo →';
     updateStats();
+}
+
+
+function retryMissed() {
+    if(missed.length === 0) return;
+    playUIClick();
+    round = [...missed];
+    missed = [];
+    qi = 0;
+    score = 0;
+    answered = false;
+    renderQuestion();
 }
 
 function nextQuestion(){qi++;renderQuestion()}
@@ -684,6 +731,20 @@ async function renderAchievements(){
     });
     const avg=mine.length?Math.round(mine.reduce((n,x)=>n+(x.percent||0),0)/mine.length):0;
     summary.textContent=currentDisplayName + ' · ' + mine.length + ' lượt làm bài · TB ' + avg + '%';
+    
+    // Check badges
+    let badges = [];
+    if(mine.length >= 5) badges.push({icon:'🔥', name:'Chăm chỉ (5 bài)'});
+    if(mine.some(x => x.score === x.total)) badges.push({icon:'🎯', name:'Tuyệt đối (100%)'});
+    if((Math.floor(Math.sqrt(userExp / 50)) + 1) >= 3) badges.push({icon:'⭐', name:'Chuyên gia (Lvl 3)'});
+    
+    let badgesHtml = badges.length ? badges.map(b => `<div style="background:#fff; padding:6px 12px; border-radius:20px; font-size:13px; font-weight:800; border:1px solid var(--line); box-shadow:0 3px 6px rgba(0,0,0,0.05)">${b.icon} ${b.name}</div>`).join('') : '<span class="sub">Chưa có huy hiệu nào. Hãy luyện tập thêm!</span>';
+    
+    summary.innerHTML += `<div style="margin-top:15px; padding:15px; background:#faf9ff; border-radius:12px; border:1px solid #e1defe; color:var(--ink);">
+       <h4 style="margin:0 0 10px 0; color:var(--purple); font-size:14px;">🎖️ Bộ sưu tập Huy hiệu</h4>
+       <div style="display:flex; gap:10px; flex-wrap:wrap;">${badgesHtml}</div>
+    </div>`;
+
     if(!mine.length){content.innerHTML='<div class="empty">Chưa có thành tích.</div>';return;}
     
     content.innerHTML='<div style="overflow-x:auto"><table class="achievement-table"><thead><tr><th>Ngày giờ</th><th>Ngôn ngữ</th><th>Điểm</th><th>Tỷ lệ</th></tr></thead><tbody>'+mine.map(x=>{
@@ -810,4 +871,11 @@ function updateBrandLogo() {
 
 // Khởi chạy ngôn ngữ mặc định
 try { changeLanguage('en'); } catch(e) { console.error(e); }
+
+window.addEventListener('load', () => {
+   setTimeout(() => {
+       const loader = document.getElementById('pageLoader');
+       if(loader) loader.classList.add('hide');
+   }, 500);
+});
 </script></body></html>
