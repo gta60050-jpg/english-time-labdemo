@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Language Time Lab</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6c63ff">
+<link rel="apple-touch-icon" href="icon-192.png">
+
 <style>
 :root{--ink:#202044;--muted:#737494;--purple:#6c63ff;--pink:#ff78a8;--mint:#45d6b0;--yellow:#ffd166;--bg:#f6f5ff;--card:#fff;--line:#e9e7fb;--shadow:0 14px 40px #39307812}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#eeeaff 0,transparent 30%),radial-gradient(circle at 95% 15%,#ffeaf2 0,transparent 24%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1160px;margin:auto;padding:24px 22px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;color:white;background:linear-gradient(135deg,var(--purple),#a58cff);box-shadow:0 8px 20px #6c63ff55;font-size:23px;overflow:hidden;}.logo img {width:100%;height:100%;object-fit:cover;}.tag{border:1px solid #e1defe;border-radius:99px;padding:9px 13px;background:#fff9;color:#665de6;font-size:12px;font-weight:800}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;margin-bottom:22px}.hero-main{position:relative;overflow:hidden;padding:34px;border-radius:28px;color:white;background:linear-gradient(120deg,#655cf6,#8e76ff 62%,#b59aff);box-shadow:var(--shadow);min-height:250px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:1.7px;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(29px,4vw,45px);line-height:1.08;letter-spacing:-1.5px;margin:14px 0 12px;max-width:560px}.hero p{line-height:1.65;max-width:520px;color:#f1efff;margin:0 0 23px}.primary{background:var(--yellow);color:#43381b;padding:13px 18px;border-radius:13px;font-weight:900;box-shadow:0 5px 0 #e9b74e;transition:.15s}.primary:hover{transform:translateY(-2px)}.hero-art{position:absolute;right:25px;bottom:13px;font-size:100px;opacity:.22;transform:rotate(-10deg)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:118px}.stat .emoji{font-size:23px}.stat strong{font-size:29px;letter-spacing:-1px}.stat span:last-child{font-size:12px;color:var(--muted);font-weight:700}.tabs{display:flex;gap:8px;background:#ebe9fa;padding:6px;border-radius:16px;width:max-content;max-width:100%;margin-bottom:18px}.tab{background:transparent;color:#77749c;font-weight:800;padding:11px 16px;border-radius:11px}.tab.active{background:white;color:var(--purple);box-shadow:0 3px 10px #39307812}.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px}.panel h2{margin:0 0 6px;font-size:23px;letter-spacing:-.5px}.sub{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.select{border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);padding:11px;max-width:100%}.tense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tense-card{border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;background:#fff;transition:.18s;min-height:142px;display:flex;flex-direction:column;gap:9px}.tense-card:hover{transform:translateY(-3px);border-color:#b9b2ff;box-shadow:0 9px 20px #6c63ff12}.tense-card .num{font-size:11px;font-weight:900;color:var(--purple);letter-spacing:1px}.tense-card strong{font-size:15px}.tense-card small{color:var(--muted);line-height:1.45}.pill{display:inline-block;border-radius:8px;background:#f0eeff;color:#655be8;padding:5px 8px;font-size:11px;font-weight:800;width:max-content}.study-layout{display:grid;grid-template-columns:230px 1fr;gap:18px}.side-list{display:flex;flex-direction:column;gap:7px;max-height:540px;overflow:auto;padding-right:3px}.side-item{background:#faf9ff;border:1px solid var(--line);padding:11px 12px;text-align:left;border-radius:12px;color:#5e5b7c;font-size:12px;font-weight:750}.side-item.active{background:#eeecff;border-color:#b9b2ff;color:#5e53ed}.lesson{border:1px solid var(--line);border-radius:19px;padding:23px;min-width:0}.lesson h3{font-size:24px;margin:12px 0 5px}.lesson .vn{color:var(--muted);margin:0 0 19px}.formula{background:#f5f3ff;border:1px dashed #c9c3ff;padding:15px;border-radius:13px;margin:10px 0 16px;line-height:1.7}.formula b{color:#5d53e8}.lesson h4{margin:19px 0 8px}.lesson li{margin:7px 0;color:#575676;line-height:1.5}.example{padding:13px 15px;background:#f0fff9;border-radius:12px;border-left:4px solid var(--mint);line-height:1.6}.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}.progress{height:8px;background:#eeecfa;border-radius:20px;overflow:hidden;margin:12px 0 23px}.progress div{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));width:0;transition:.25s}.question{font-size:22px;line-height:1.45;font-weight:850;margin:8px 0 7px}.qmeta{font-size:12px;color:var(--muted);font-weight:800}.options{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:23px 0}.option{border:1.5px solid var(--line);border-radius:14px;padding:15px;text-align:left;background:#fff;color:var(--ink);display:flex;gap:12px;align-items:center;line-height:1.45;transition:.15s}.letter{display:grid;place-items:center;flex:0 0 29px;height:29px;border-radius:9px;background:#f1efff;color:#6c63ff;font-weight:900}.option:hover:not(:disabled){border-color:#a8a0ff;background:#faf9ff}.option.correct{border-color:#45c99f;background:#effdf7}.option.correct .letter{background:#45c99f;color:white}.option.wrong{border-color:#ff8da7;background:#fff3f6}.option.wrong .letter{background:#ff8da7;color:white}.feedback{padding:14px 16px;border-radius:13px;line-height:1.6;margin:8px 0 16px;display:none}.feedback.show{display:block}.feedback.good{background:#effdf7;color:#176c51}.feedback.bad{background:#fff3f6;color:#a63b56}.quiz-actions{display:flex;justify-content:space-between;gap:10px;align-items:center}.secondary{background:#f0eeff;color:#5e53e8;padding:12px 16px;border-radius:12px;font-weight:850}.secondary:disabled{opacity:.4;cursor:not-allowed}.result{text-align:center;padding:20px 10px}.result .big{font-size:64px}.result h2{font-size:30px;margin:8px}.result p{color:var(--muted)}.result-score{font-size:42px;font-weight:950;color:var(--purple);margin:12px}.footer{text-align:center;color:#9996b7;font-size:12px;padding:24px 0 0}.auth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.auth-card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.field{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;margin:6px 0 12px;background:#fff;color:var(--ink)}.achievement-table{width:100%;border-collapse:collapse;margin-top:14px}.achievement-table th,.achievement-table td{padding:11px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}.notice{padding:12px 14px;border-radius:12px;background:#fff6dc;color:#795b13;line-height:1.55;font-size:13px;margin:12px 0}.account-pill{font-size:12px;color:var(--purple);font-weight:800}.hidden{display:none!important}.empty{text-align:center;padding:35px;color:var(--muted)}
 .avatar-logo { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #ff78a8, #6c63ff); color: white; font-weight: bold; font-size: 20px; box-shadow: 0 8px 20px #6c63ff55; text-transform: uppercase; overflow: hidden; }
@@ -89,6 +94,30 @@ body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
 .full-loader.hide { opacity: 0; pointer-events:none; }
 .spinner { width: 50px; height: 50px; border: 5px solid #e1defe; border-top-color: var(--purple); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom:15px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Game Styles */
+.game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-top: 20px; }
+.game-card { background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 20px 10px; text-align: center; font-weight: bold; cursor: pointer; transition: 0.2s; min-height: 80px; display: flex; align-items: center; justify-content: center; font-size: 14px; user-select: none; }
+.game-card:hover { border-color: #b9b2ff; background: #faf9ff; transform: translateY(-2px); }
+.game-card.selected { border-color: var(--purple); background: #f0eeff; color: var(--purple); transform: scale(1.05); }
+.game-card.matched { visibility: hidden; opacity: 0; pointer-events: none; }
+.game-info { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+
+/* Heatmap Styles */
+.heatmap-container { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 15px; }
+.heat-day { width: 14px; height: 14px; border-radius: 3px; background: #e9e7fb; }
+.heat-day.lvl-1 { background: #a2f2d9; }
+.heat-day.lvl-2 { background: #45d6b0; }
+.heat-day.lvl-3 { background: #26a685; }
+.heat-day.lvl-4 { background: #13755c; }
+.heat-month-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; width: 100%; }
+
+/* Mic Button */
+.mic-btn { position: absolute; bottom: 8px; right: 8px; background: #f1efff; border: 1px solid #d4cfff; border-radius: 50%; width: 32px; height: 32px; font-size: 14px; display: grid; place-items: center; cursor: pointer; transition: 0.2s; color: var(--purple); z-index: 10; }
+.mic-btn:hover { background: var(--purple); color: white; transform: scale(1.1); }
+.mic-btn.listening { background: var(--pink); color: white; border-color: var(--pink); animation: pulse 1s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -154,7 +183,7 @@ body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
 </header>
 
 <section class="hero"><div class="hero-main"><div class="eyebrow">✨ Chinh phục ngữ pháp</div><h1 id="heroTitle">12 thì tiếng Anh<br>không còn khó!</h1><p>Học công thức, hiểu cách dùng và luyện trắc nghiệm từng bước. Mỗi câu đúng là một bước tiến gần hơn đến mục tiêu của bạn.</p><button class="primary" onclick="switchTab('quiz')">Bắt đầu luyện tập&nbsp; →</button><div class="hero-art">🚀</div></div><div class="stats"><div class="stat"><span class="emoji">📚</span><strong id="questionCount">—</strong><span>câu trong ngân hàng</span></div><div class="stat"><span class="emoji">🧠</span><strong id="doneStat">0</strong><span>câu đã trả lời</span></div><div class="stat"><span class="emoji">⭐</span><strong id="accuracyStat">—</strong><span>tỉ lệ chính xác</span></div><div class="stat"><span class="emoji">🔥</span><strong id="streakStat">0</strong><span>câu đúng liên tiếp</span></div></div></section>
-<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Thư viện ngữ pháp</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button></nav>
+<nav class="tabs"><button class="tab active" data-tab="learn" onclick="switchTab('learn')">📖 Thư viện ngữ pháp</button><button class="tab" data-tab="quiz" onclick="switchTab('quiz')">⚡ Trắc nghiệm</button><button class="tab" data-tab="review" onclick="switchTab('review')">📝 Ôn nhanh</button><button class="tab" data-tab="achievements" onclick="switchTab('achievements')">🏆 Thành tích</button><button class="tab" data-tab="game" onclick="switchTab('game')">🎮 Minigame</button></nav>
 <section class="panel" id="learnPanel"><div class="panel-head"><div><h2>Thư viện Ngữ pháp</h2><p class="sub">Chọn một chủ điểm để xem công thức, cách dùng và ví dụ.</p></div></div><div class="tense-grid" id="tenseGrid"></div></section>
 <section class="panel hidden" id="studyPanel"><div class="panel-head"><div><h2>Góc học tập</h2><p class="sub">Mẹo nhỏ: chú ý từ vựng và dấu hiệu thời gian.</p></div><button class="secondary" onclick="switchTab('learn')">← Danh sách</button></div><div class="study-layout"><div class="side-list" id="sideList"></div><article class="lesson" id="lesson"></article></div></section>
 <section class="panel hidden" id="quizPanel"><div class="panel-head"><div><h2>Đấu trường ngữ pháp ⚡</h2><p class="sub">Ngân hàng hàng ngàn câu trắc nghiệm. Luyện tối đa 20 câu mỗi lượt; mỗi câu đều có giải thích.</p></div></div><div id="quizArea"></div></section>
@@ -187,6 +216,24 @@ body.dark-mode .dropdown-lang-btn:hover { background: #333; color: #fff; }
   </div>
 </div>
 <div class="notice">Tài khoản được xác thực bằng Firebase Authentication. Thành tích được lưu trong Firestore khi bạn đã bật dịch vụ và thiết lập Security Rules phù hợp.</div></section><section class="panel hidden" id="achievementsPanel"><div class="panel-head"><div><h2>🏆 Thành tích học tập</h2><p class="sub">Lịch sử các lượt làm bài của tài khoản đang đăng nhập.</p></div><button class="secondary" onclick="renderAchievements()">↻ Làm mới</button></div><div id="achievementSummary" class="sub"></div><div id="achievementContent"></div><p class="sub" style="margin-top:14px">Lịch sử được lưu trực tuyến trong tài khoản Firebase của bạn.</p></section>
+
+<section class="panel hidden" id="gamePanel">
+    <div class="panel-head">
+        <div>
+            <h2>Thử thách Nối từ ⏱️</h2>
+            <p class="sub">Ghép cặp từ vựng và nghĩa tiếng Việt nhanh nhất có thể!</p>
+        </div>
+        <button class="primary" onclick="startGame()">Bắt đầu ngay</button>
+    </div>
+    <div class="game-info hidden" id="gameInfo">
+        <span style="color:var(--purple)">Điểm: <span id="gameScore">0</span></span>
+        <span style="color:var(--pink)">⏰ <span id="gameTime">30.0</span>s</span>
+    </div>
+    <div class="game-grid" id="gameGrid">
+        <div class="empty">Nhấn "Bắt đầu ngay" để chơi!</div>
+    </div>
+</section>
+
 <div class="footer">Made for your language journey 💜 · Học một chút mỗi ngày sẽ tạo nên khác biệt.</div></div>
 
 <!-- Modal cập nhật hồ sơ -->
@@ -298,6 +345,7 @@ function renderVocab() {
         '<div class="vocab-card-inner">' +
             '<div class="vocab-card-front">' +
                 '<div class="vocab-word">' + v.w + '</div>' +
+                '<button class="mic-btn" onclick="event.stopPropagation(); practiceSpeech(this, \'' + v.w.replace(/'/g, "\\'") + '\', \'' + currentLang + '\')">🎤</button>' +
                 '<div style="font-size: 11px; color: var(--muted); margin-top:5px;">Chạm để lật & nghe</div>' +
             '</div>' +
             '<div class="vocab-card-back">' +
@@ -500,7 +548,7 @@ function playUIClick() {
   } catch(e){}
 }
 
-function switchTab(tab){ playUIClick(); document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','settings','achievements'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('settings');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='settings')renderAccountStatus();if(tab==='achievements')renderAchievements();const tabsEl=document.querySelector('.tabs'); if(tabsEl) window.scrollTo({top:tabsEl.offsetTop-12,behavior:'smooth'});}
+function switchTab(tab){ playUIClick(); document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','study','quiz','review','settings','achievements','game'].forEach(x=>document.getElementById(x+'Panel').classList.toggle('hidden',x!==tab&&!(tab==='learn'&&x==='learn')));if(tab==='learn')document.getElementById('studyPanel').classList.add('hidden');if(tab==='quiz'){if(!currentUser){switchTab('settings');setAccountMessage('Hãy đăng nhập trước khi làm bài để lưu thành tích.');return;}if(!round.length||document.getElementById('quizArea').innerHTML==='')startQuiz();}if(tab==='settings')renderAccountStatus();if(tab==='achievements')renderAchievements();const tabsEl=document.querySelector('.tabs'); if(tabsEl) window.scrollTo({top:tabsEl.offsetTop-12,behavior:'smooth'});}
 function startQuiz(onlyId=null){if(!currentUser){switchTab('settings');setAccountMessage('Đăng nhập trước khi bắt đầu làm bài.');return;}let pool=questions.filter(q=>(onlyId?q.t===onlyId:true));if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="empty">Chưa có câu hỏi.</div>';round=[];return}pool.sort(()=>Math.random()-.5);let limit=Math.min(20,pool.length);round=pool.slice(0,limit);qi=0;score=0;answered=false;renderQuestion();}
 function renderQuestion(){let area=document.getElementById('quizArea');if(qi>=round.length){
     saveAchievement();
@@ -745,6 +793,24 @@ async function renderAchievements(){
        <div style="display:flex; gap:10px; flex-wrap:wrap;">${badgesHtml}</div>
     </div>`;
 
+    // Render Heatmap
+    let heatmapData = JSON.parse(localStorage.getItem('heatmap_data') || '[]');
+    let heatmapHtml = '<div class="heat-month-label">Hoạt động 30 ngày qua (Heatmap)</div><div class="heatmap-container">';
+    let today = new Date();
+    for(let i = 29; i >= 0; i--) {
+        let d = new Date();
+        d.setDate(today.getDate() - i);
+        let dStr = d.toISOString().split('T')[0];
+        let active = heatmapData.includes(dStr) ? 'lvl-2' : '';
+        heatmapHtml += `<div class="heat-day ${active}" title="${dStr}"></div>`;
+    }
+    heatmapHtml += '</div>';
+    
+    summary.innerHTML += `<div style="margin-top:15px; padding:15px; background:#fff; border-radius:12px; border:1px solid var(--line);">
+       ${heatmapHtml}
+    </div>`;
+
+
     if(!mine.length){content.innerHTML='<div class="empty">Chưa có thành tích.</div>';return;}
     
     content.innerHTML='<div style="overflow-x:auto"><table class="achievement-table"><thead><tr><th>Ngày giờ</th><th>Ngôn ngữ</th><th>Điểm</th><th>Tỷ lệ</th></tr></thead><tbody>'+mine.map(x=>{
@@ -867,6 +933,180 @@ function updateBrandLogo() {
         if(b1) b1.style.display = 'none';
         if(b2) b2.style.display = 'none';
     }
+}
+
+
+// --- PWA SERVICE WORKER ---
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').then(reg => console.log('SW registered')).catch(err => console.log('SW error', err));
+  });
+}
+
+// --- SPEECH RECOGNITION ---
+function practiceSpeech(btn, word, lang) {
+    playUIClick();
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SpeechRecognition) return alert('Trình duyệt của bạn không hỗ trợ nhận diện giọng nói (Vui lòng dùng Chrome).');
+    
+    const recognition = new SpeechRecognition();
+    recognition.lang = lang === 'en' ? 'en-US' : (lang === 'ko' ? 'ko-KR' : 'zh-CN');
+    recognition.interimResults = false;
+    
+    btn.classList.add('listening');
+    recognition.start();
+    
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase().trim().replace(/[.,!?]/g, '');
+        const cleanWord = word.toLowerCase().trim().replace(/[.,!?]/g, '');
+        btn.classList.remove('listening');
+        
+        if(transcript.includes(cleanWord) || cleanWord.includes(transcript) || transcript === cleanWord) {
+            playSound(true); 
+            btn.style.background = '#45d6b0'; btn.style.color = 'white'; btn.textContent = '✔️';
+            setTimeout(() => { btn.style.background=''; btn.style.color=''; btn.textContent='🎤'; }, 2000);
+        } else {
+            playSound(false); 
+            alert('🤔 Bạn đọc là: "' + transcript + '". Gốc là: "' + word + '". Hãy thử lại nhé!');
+        }
+    };
+    recognition.onerror = (e) => { btn.classList.remove('listening'); console.log(e); };
+    recognition.onend = () => { btn.classList.remove('listening'); };
+}
+
+// --- MINIGAME MATCHING ---
+let gameTimer = null;
+let gameTimeLeft = 30;
+let gameCards = [];
+let gameFirstSelect = null;
+let gameScore = 0;
+let gamePairsMatch = 0;
+
+function startGame() {
+    playUIClick();
+    clearInterval(gameTimer);
+    document.getElementById('gameInfo').classList.remove('hidden');
+    gameTimeLeft = 30 + (currentLang === 'zh' ? 10 : 0); // Bonus time for Chinese
+    gameScore = 0;
+    gamePairsMatch = 0;
+    document.getElementById('gameScore').textContent = gameScore;
+    document.getElementById('gameTime').textContent = gameTimeLeft.toFixed(1);
+    
+    // Select 6 random vocab pairs
+    let pool = [];
+    if(vocabDB[currentLang]) {
+        Object.keys(vocabDB[currentLang]).forEach(k => { pool = pool.concat(vocabDB[currentLang][k]); });
+    }
+    if(pool.length < 6) return alert("Không đủ từ vựng để chơi!");
+    pool.sort(() => Math.random() - 0.5);
+    const selected = pool.slice(0, 6);
+    
+    gameCards = [];
+    selected.forEach((v, idx) => {
+        gameCards.push({ id: idx, text: v.w, type: 'word' });
+        gameCards.push({ id: idx, text: v.m, type: 'meaning' });
+    });
+    gameCards.sort(() => Math.random() - 0.5); // Shuffle
+    
+    const grid = document.getElementById('gameGrid');
+    grid.innerHTML = gameCards.map((c, i) => 
+        `<div class="game-card" id="gcard_${i}" onclick="selectGameCard(${i})">${c.text}</div>`
+    ).join('');
+    
+    gameTimer = setInterval(() => {
+        gameTimeLeft -= 0.1;
+        document.getElementById('gameTime').textContent = Math.max(0, gameTimeLeft).toFixed(1);
+        if(gameTimeLeft <= 0) {
+            clearInterval(gameTimer);
+            endGame(false);
+        }
+    }, 100);
+}
+
+function selectGameCard(index) {
+    const cardEl = document.getElementById(`gcard_${index}`);
+    if(cardEl.classList.contains('matched') || cardEl.classList.contains('selected')) return;
+    
+    playUIClick();
+    cardEl.classList.add('selected');
+    
+    if(gameFirstSelect === null) {
+        gameFirstSelect = index;
+    } else {
+        const firstIdx = gameFirstSelect;
+        const secondIdx = index;
+        gameFirstSelect = null;
+        
+        const card1 = gameCards[firstIdx];
+        const card2 = gameCards[secondIdx];
+        
+        if(card1.id === card2.id && card1.type !== card2.type) {
+            // Match!
+            playSound(true);
+            setTimeout(() => {
+                document.getElementById(`gcard_${firstIdx}`).classList.add('matched');
+                document.getElementById(`gcard_${secondIdx}`).classList.add('matched');
+            }, 300);
+            gameScore += 100;
+            document.getElementById('gameScore').textContent = gameScore;
+            gamePairsMatch++;
+            
+            if(gamePairsMatch >= 6) {
+                clearInterval(gameTimer);
+                endGame(true);
+            }
+        } else {
+            // No Match
+            playSound(false);
+            gameTimeLeft -= 2; // Penalty
+            setTimeout(() => {
+                document.getElementById(`gcard_${firstIdx}`).classList.remove('selected');
+                document.getElementById(`gcard_${secondIdx}`).classList.remove('selected');
+            }, 400);
+        }
+    }
+}
+
+function endGame(win) {
+    const grid = document.getElementById('gameGrid');
+    let extraExp = win ? 50 : 10;
+    if(win) {
+        if(typeof confetti !== 'undefined') confetti({ particleCount: 100, spread: 70 });
+        grid.innerHTML = `<div class="empty" style="grid-column: 1/-1;"><h2>🎉 Thắng lợi! Bạn được +${extraExp} EXP</h2><button class="primary" onclick="startGame()">Chơi lại</button></div>`;
+    } else {
+        grid.innerHTML = `<div class="empty" style="grid-column: 1/-1;"><h2>⏰ Hết giờ!</h2><button class="primary" onclick="startGame()">Thử lại</button></div>`;
+    }
+    userExp += extraExp;
+    if(currentUser) db.collection('users').doc(currentUser.uid).update({ exp: userExp });
+    updateLevelUI();
+}
+
+// --- HEATMAP TRACKING ---
+// Track today's activity locally if not logged in, or push to array if logged in
+function logActivity() {
+    let todayStr = new Date().toISOString().split('T')[0];
+    let heatmapData = JSON.parse(localStorage.getItem('heatmap_data') || '[]');
+    if(!heatmapData.includes(todayStr)) {
+        heatmapData.push(todayStr);
+        localStorage.setItem('heatmap_data', JSON.stringify(heatmapData));
+        if(currentUser) {
+             // Optional: sync to firebase
+             db.collection('users').doc(currentUser.uid).update({ 
+                activeDates: firebase.firestore.FieldValue.arrayUnion(todayStr) 
+             }).catch(()=>{});
+        }
+    }
+}
+// Log activity whenever quiz finishes
+const originalSaveAch = saveAchievement;
+saveAchievement = async function() {
+    logActivity();
+    await originalSaveAch();
+}
+const originalEndGame = endGame;
+endGame = function(win) {
+    logActivity();
+    originalEndGame(win);
 }
 
 // Khởi chạy ngôn ngữ mặc định
